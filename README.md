@@ -1,5 +1,13 @@
 # HBGT_2026
 
+<script src="https://jsdelivr.net"></script>
+<!-- Initialize quizdown automatically -->
+<script>
+    window.onload = function() {
+        quizdown.init();
+    };
+</script>
+
 <div class="quizdown">
 
 # Cuestionario: Desafío de Linux y HPC en Bioinformática (Formato Google Forms)
