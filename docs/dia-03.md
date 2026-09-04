@@ -1,21 +1,16 @@
 ---
-title: Día 3 · Control y procesamiento de lecturas
+layout: default
+title: "Día 03 · Control y procesamiento de lecturas"
 ---
-# Día 3 · Control y procesamiento de lecturas
 
-**Lunes 21 de septiembre de 2026**
+<span class="eyebrow">Lunes · 21 septiembre</span>
 
-> Espacio de trabajo para los materiales de la tercera jornada.
+# Día 03 · Control y procesamiento de lecturas
 
-## Temas
-- Filtrado y criterios de calidad
-- Formato FASTQ
-- Conversión de formatos
-- Recorte por calidad
-- Ventanas móviles
-- Fusión de lecturas pareadas
+Calidad, FASTQ, filtrado, recorte, ventanas móviles y lecturas pareadas.
 
 ## Materiales
+
 Los materiales se agregarán durante la preparación del curso.
 
 [← Volver a la portada](./)

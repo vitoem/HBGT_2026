@@ -1,20 +1,16 @@
 ---
-title: Día 2 · NGS y preparación de datos
+layout: default
+title: "Día 02 · NGS y preparación de datos"
 ---
-# Día 2 · NGS y preparación de datos
 
-**Viernes 18 de septiembre de 2026**
+<span class="eyebrow">Viernes · 18 septiembre</span>
 
-> Espacio de trabajo para los materiales de la segunda jornada.
+# Día 02 · NGS y preparación de datos
 
-## Temas
-- Plataformas de secuenciación NGS
-- Tipos de librerías y química
-- Datos generados por la secuenciación
-- Línea de comandos y formatos
-- Preparación de datos en HPC
+Plataformas de secuenciación, librerías, lecturas, formatos y línea de comandos.
 
 ## Materiales
+
 Los materiales se agregarán durante la preparación del curso.
 
 [← Volver a la portada](./)

@@ -1,20 +1,16 @@
 ---
-title: Día 4 · Ensamblaje de genomas
+layout: default
+title: "Día 04 · Ensamblaje de genomas"
 ---
-# Día 4 · Ensamblaje de genomas
 
-**Martes 22 de septiembre de 2026**
+<span class="eyebrow">Martes · 22 septiembre</span>
 
-> Espacio de trabajo para los materiales de la cuarta jornada.
+# Día 04 · Ensamblaje de genomas
 
-## Temas
-- Estructura de genomas eucariotes y procariotes
-- Algoritmos de ensamblaje
-- Ensamblaje de un genoma bacteriano
-- Diferentes tipos de datos
-- Comparación de estrategias y resultados
+Estructura de genomas, algoritmos y ensamblaje de un genoma bacteriano.
 
 ## Materiales
+
 Los materiales se agregarán durante la preparación del curso.
 
 [← Volver a la portada](./)
