@@ -1,8 +1,7 @@
-title: "HBGT 2026"
-description: "Herramientas Bioinformáticas para el Análisis de Genomas y Transcriptomas"
-theme: jekyll-theme-minimal
-
+title: Herramientas bioinformáticas 2026
+description: Curso de herramientas bioinformáticas para el análisis de genomas y transcriptomas.
 remote_theme: pages-themes/minimal@v0.2.0
-
 plugins:
   - jekyll-remote-theme
+markdown: kramdown
+show_downloads: false
