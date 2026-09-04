@@ -1,19 +1,19 @@
 # HBGT_2026
-<script src="https://jsdelivr.net"></script>
-<!-- Initialize quizdown automatically -->
-<script>
-    window.onload = function() {
-        quizdown.init();
-    };
-</script>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/quizdown@latest/public/build/quizdown.js"></script>
+        <script>
+            quizdown.init();
+        </script>
+    </head>
 
-<div class="quizdown">
+    <body>
+    # Cuestionario: Desafío de Linux y HPC en Bioinformática (Formato Google Forms)
 
-# Cuestionario: Desafío de Linux y HPC en Bioinformática (Formato Google Forms)
-
-Este cuestionario contiene 15 preguntas de opción múltiple organizadas en 5 bloques conceptuales (3 preguntas por bloque), listas para ser copiadas e importadas a **Google Forms** o utilizadas en dinámicas tipo **Kahoot**. Se incluyen explicaciones pedagógicas detalladas basadas en los principios de **CABANAnet** y el material oficial del curso.
+    Este cuestionario contiene 15 preguntas de opción múltiple organizadas en 5 bloques conceptuales (3 preguntas por bloque), listas para ser copiadas e importadas a **Google Forms** o utilizadas en     dinámicas tipo **Kahoot**. Se incluyen explicaciones pedagógicas detalladas basadas en los principios de **CABANAnet** y el material oficial del curso.
 
 ---
+        <div class="quizdown">
 
 ## BLOQUE 1: ARQUITECTURA Y TERMINOLOGÍA (HPC vs. Local)
 
@@ -24,4 +24,6 @@ Estás corriendo un alineamiento que requiere cargar en memoria temporal un índ
 * [ ] C) El Núcleo (Core)
 * [ ] D) El Disco de Estado Sólido (SSD) en modo de almacenamiento secundario
 
-<\div>
+          </div>
+     </body>
+ </html>
