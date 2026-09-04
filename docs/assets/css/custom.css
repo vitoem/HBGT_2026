@@ -9,129 +9,98 @@
   --soft: #e7efe9;
   --warm: #c88a4a;
 }
+
 html { scroll-behavior: smooth; }
 body { background: var(--paper); color: var(--ink); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
 .wrapper { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
 .site-header, .site-footer { border: 0; }
-header.site-header { display:none; }
+header.site-header { display: none; }
 section, header.hero { box-sizing: border-box; }
 .hero { margin: 0 -28px; padding: 105px 8%; background: linear-gradient(135deg, #173c30 0%, #245d4b 58%, #36705b 100%); color: white; position: relative; overflow: hidden; }
-.hero:after { content:""; position:absolute; width:420px; height:420px; border:1px solid rgba(255,255,255,.16); border-radius:50%; right:-120px; top:-150px; box-shadow:0 0 0 65px rgba(255,255,255,.025),0 0 0 130px rgba(255,255,255,.02); }
-.hero-kicker, .eyebrow { font-size:.76rem; letter-spacing:.16em; text-transform:uppercase; font-weight:700; opacity:.8; }
-.hero h1 { font-size: clamp(2.7rem, 7vw, 5.7rem); line-height:.98; max-width:800px; margin:18px 0 8px; letter-spacing:-.045em; }
-.hero-subtitle { font-size: clamp(1.3rem, 3vw, 2.1rem); margin:0; font-weight:400; }
-.hero-lead { font-size:1.25rem; margin:42px 0 10px; font-weight:700; }
-.hero-text { max-width:680px; color:rgba(255,255,255,.82); font-size:1.02rem; }
-.hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
-.button { display:inline-block; padding:11px 18px; border-radius:8px; text-decoration:none !important; font-weight:700; }
-.button.primary { background:white; color:var(--accent) !important; }
-.button.secondary { border:1px solid rgba(255,255,255,.45); color:white !important; }
-.course-meta { display:grid; grid-template-columns:repeat(4,1fr); background:white; border:1px solid var(--line); border-top:0; margin:0 -28px; }
-.course-meta div { padding:25px 28px; border-right:1px solid var(--line); }
-.course-meta div:last-child { border-right:0; }
-.course-meta strong { display:block; font-size:1.08rem; }
-.course-meta span { display:block; color:var(--muted); font-size:.82rem; margin-top:3px; }
-.section { padding:82px 0; }
-.intro { display:grid; grid-template-columns:1fr 1.35fr; gap:70px; }
-h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em; margin:12px 0 18px; }
-.intro p { color:#4f5d56; font-size:1.03rem; }
-.section-heading { display:flex; justify-content:space-between; gap:40px; align-items:end; margin-bottom:32px; }
-.section-heading > p { max-width:430px; color:var(--muted); }
-<section id="jornadas" class="section jornadas-section">
-  <div class="section-heading">
-    <div>
-      <span class="eyebrow">Ruta de aprendizaje</span>
-      <h2>Las 11 jornadas del curso</h2>
-    </div>
-    <p>Un recorrido progresivo desde los fundamentos y el procesamiento de datos hasta el análisis de genomas, transcriptomas y metagenomas.</p>
-  </div>
-  <div class="session-list">
-    <a class="session-row" href="dia-01.html">
-      <span class="session-number">01</span>
-      <span class="session-date">Jueves · 17 septiembre</span>
-      <span class="session-theme">Introducción y fundamentos</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-02.html">
-      <span class="session-number">02</span>
-      <span class="session-date">Viernes · 18 septiembre</span>
-      <span class="session-theme">NGS y preparación de datos</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-03.html">
-      <span class="session-number">03</span>
-      <span class="session-date">Lunes · 21 septiembre</span>
-      <span class="session-theme">Control y procesamiento de lecturas</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-04.html">
-      <span class="session-number">04</span>
-      <span class="session-date">Martes · 22 septiembre</span>
-      <span class="session-theme">Ensamblaje de genomas</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-05.html">
-      <span class="session-number">05</span>
-      <span class="session-date">Miércoles · 23 septiembre</span>
-      <span class="session-theme">Evaluación y anotación de genomas</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-06.html">
-      <span class="session-number">06</span>
-      <span class="session-date">Jueves · 24 septiembre</span>
-      <span class="session-theme">Predicción génica y elementos repetitivos</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-07.html">
-      <span class="session-number">07</span>
-      <span class="session-date">Viernes · 25 septiembre</span>
-      <span class="session-theme">lncRNA, ortólogos y familias génicas</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-08.html">
-      <span class="session-number">08</span>
-      <span class="session-date">Sábado · 26 septiembre</span>
-      <span class="session-theme">Ensamblaje y evaluación de transcriptomas</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-09.html">
-      <span class="session-number">09</span>
-      <span class="session-date">Lunes · 29 septiembre</span>
-      <span class="session-theme">RNA-seq y expresión diferencial</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-10.html">
-      <span class="session-number">10</span>
-      <span class="session-date">Martes · 30 septiembre</span>
-      <span class="session-theme">Metagenómica I</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-11.html">
-      <span class="session-number">11</span>
-      <span class="session-date">Jueves · 1 octubre</span>
-      <span class="session-theme">Metagenómica II y cierre del curso</span>
-      <span class="session-arrow">→</span>
-    </a>
-  </div>
-</section>
-.method { background:var(--accent-dark); color:white; margin:0 -28px; padding-left:8%; padding-right:8%; display:grid; grid-template-columns:.9fr 1.1fr; gap:70px; }
-.method .eyebrow { color:#cfe1d8; }
-.method-copy p { color:rgba(255,255,255,.72); }
-.method-steps { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-.method-steps div { border-top:1px solid rgba(255,255,255,.22); padding-top:17px; }
-.method-steps strong { font-size:.78rem; opacity:.55; }
-.method-steps h3 { margin:7px 0 2px; }
-.method-steps p { color:rgba(255,255,255,.66); font-size:.9rem; margin:0; }
-.objective-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
-.objective-grid div { border-top:3px solid var(--accent); padding:17px; background:white; min-height:130px; }
-.objective-grid span { color:var(--accent); font-weight:800; }
-.objective-grid p { font-size:.9rem; margin:12px 0 0; }
-.materials { display:grid; grid-template-columns:1fr 1.15fr; gap:70px; border-top:1px solid var(--line); }
-.materials p { color:var(--muted); }
-.material-links { border-top:1px solid var(--line); }
-.material-links a { display:flex; justify-content:space-between; padding:16px 4px; border-bottom:1px solid var(--line); text-decoration:none !important; font-weight:650; color:var(--ink) !important; }
-.material-links a span { color:var(--accent); }
-.site-footer { margin:0 -28px; padding:35px 8%; background:#111b17; color:white; display:flex; justify-content:space-between; gap:30px; font-size:.82rem; }
-.site-footer span { color:rgba(255,255,255,.6); }
-@media(max-width:800px){ .course-meta{grid-template-columns:1fr 1fr}.course-meta div:nth-child(2){border-right:0}.course-meta div{border-bottom:1px solid var(--line)} .intro,.method,.materials{grid-template-columns:1fr;gap:35px}.session-row{grid-template-columns:52px 1fr 24px;gap:12px}.session-date{grid-column:2;grid-row:1;font-size:.72rem}.session-theme{grid-column:2;grid-row:2}.session-number{grid-column:1;grid-row:1 / span 2;align-self:center}.session-arrow{grid-column:3;grid-row:1 / span 2}.objective-grid{grid-template-columns:1fr 1fr}.section-heading{display:block}.site-footer{display:block}.site-footer span{display:block;margin-top:8px} }
-@media(max-width:520px){.hero{padding:70px 8%}.course-meta{grid-template-columns:1fr}.course-meta div{border-right:0}.objective-grid{grid-template-columns:1fr}.method-steps{grid-template-columns:1fr}}
+.hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; right: -120px; top: -150px; box-shadow: 0 0 0 65px rgba(255,255,255,.025), 0 0 0 130px rgba(255,255,255,.02); }
+.hero-kicker, .eyebrow { font-size: .76rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; opacity: .8; }
+.hero h1 { font-size: clamp(2.7rem, 7vw, 5.7rem); line-height: .98; max-width: 800px; margin: 18px 0 8px; letter-spacing: -.045em; }
+.hero-subtitle { font-size: clamp(1.3rem, 3vw, 2.1rem); margin: 0; font-weight: 400; }
+.hero-lead { font-size: 1.25rem; margin: 42px 0 10px; font-weight: 700; }
+.hero-text { max-width: 680px; color: rgba(255,255,255,.82); font-size: 1.02rem; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.button { display: inline-block; padding: 11px 18px; border-radius: 8px; text-decoration: none !important; font-weight: 700; }
+.button.primary { background: white; color: var(--accent) !important; }
+.button.secondary { border: 1px solid rgba(255,255,255,.45); color: white !important; }
+.course-meta { display: grid; grid-template-columns: repeat(4,1fr); background: white; border: 1px solid var(--line); border-top: 0; margin: 0 -28px; }
+.course-meta div { padding: 25px 28px; border-right: 1px solid var(--line); }
+.course-meta div:last-child { border-right: 0; }
+.course-meta strong { display: block; font-size: 1.08rem; }
+.course-meta span { display: block; color: var(--muted); font-size: .82rem; margin-top: 3px; }
+.section { padding: 82px 0; }
+.intro { display: grid; grid-template-columns: 1fr 1.35fr; gap: 70px; }
+h2 { font-size: clamp(2rem,4vw,3.2rem); line-height: 1.05; letter-spacing: -.035em; margin: 12px 0 18px; }
+.intro p { color: #4f5d56; font-size: 1.03rem; }
+.section-heading { display: flex; justify-content: space-between; gap: 40px; align-items: end; margin-bottom: 32px; }
+.section-heading > p { max-width: 430px; color: var(--muted); }
+
+.session-list { border-top: 1px solid var(--line); }
+.session-row {
+  display: grid;
+  grid-template-columns: 72px 205px 1fr 28px;
+  align-items: center;
+  gap: 22px;
+  padding: 19px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 0;
+  text-decoration: none !important;
+  color: var(--ink) !important;
+  transition: background .18s ease, padding .18s ease, box-shadow .18s ease;
+}
+.session-row:first-child { border-radius: 14px 14px 0 0; }
+.session-row:last-child { border-radius: 0 0 14px 14px; }
+.session-row:hover { background: #f1f5f1; padding-left: 24px; box-shadow: 0 6px 18px rgba(24,50,39,.05); position: relative; z-index: 1; }
+.session-number { font-size: 1.15rem; font-weight: 800; color: var(--accent); letter-spacing: .04em; }
+.session-date { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .055em; }
+.session-theme { font-size: 1.08rem; font-weight: 700; }
+.session-arrow { color: var(--accent); font-size: 1.25rem; font-weight: 700; text-align: right; }
+
+.method { background: var(--accent-dark); color: white; margin: 0 -28px; padding-left: 8%; padding-right: 8%; display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; }
+.method .eyebrow { color: #cfe1d8; }
+.method-copy p { color: rgba(255,255,255,.72); }
+.method-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.method-steps div { border-top: 1px solid rgba(255,255,255,.22); padding-top: 17px; }
+.method-steps strong { font-size: .78rem; opacity: .55; }
+.method-steps h3 { margin: 7px 0 2px; }
+.method-steps p { color: rgba(255,255,255,.66); font-size: .9rem; margin: 0; }
+.objective-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; }
+.objective-grid div { border-top: 3px solid var(--accent); padding: 17px; background: white; min-height: 130px; }
+.objective-grid span { color: var(--accent); font-weight: 800; }
+.objective-grid p { font-size: .9rem; margin: 12px 0 0; }
+.materials { display: grid; grid-template-columns: 1fr 1.15fr; gap: 70px; border-top: 1px solid var(--line); }
+.materials p { color: var(--muted); }
+.material-links { border-top: 1px solid var(--line); }
+.material-links a { display: flex; justify-content: space-between; padding: 16px 4px; border-bottom: 1px solid var(--line); text-decoration: none !important; font-weight: 650; color: var(--ink) !important; }
+.material-links a span { color: var(--accent); }
+.site-footer { margin: 0 -28px; padding: 35px 8%; background: #111b17; color: white; display: flex; justify-content: space-between; gap: 30px; font-size: .82rem; }
+.site-footer span { color: rgba(255,255,255,.6); }
+
+@media (max-width: 800px) {
+  .course-meta { grid-template-columns: 1fr 1fr; }
+  .course-meta div:nth-child(2) { border-right: 0; }
+  .course-meta div { border-bottom: 1px solid var(--line); }
+  .intro, .method, .materials { grid-template-columns: 1fr; gap: 35px; }
+  .session-row { grid-template-columns: 52px 1fr 24px; gap: 12px; }
+  .session-date { grid-column: 2; grid-row: 1; font-size: .72rem; }
+  .session-theme { grid-column: 2; grid-row: 2; }
+  .session-number { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+  .session-arrow { grid-column: 3; grid-row: 1 / span 2; }
+  .objective-grid { grid-template-columns: 1fr 1fr; }
+  .section-heading { display: block; }
+  .site-footer { display: block; }
+  .site-footer span { display: block; margin-top: 8px; }
+}
+
+@media (max-width: 520px) {
+  .hero { padding: 70px 8%; }
+  .course-meta { grid-template-columns: 1fr; }
+  .course-meta div { border-right: 0; }
+  .objective-grid { grid-template-columns: 1fr; }
+  .method-steps { grid-template-columns: 1fr; }
+}
