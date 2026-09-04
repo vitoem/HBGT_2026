@@ -2,7 +2,6 @@
 layout: default
 title: Herramientas bioinformáticas para el análisis de genomas y transcriptomas
 ---
-
 <header class="hero">
   <div class="hero-kicker">INECOL · 2026 · CURSO PRÁCTICO</div>
   <h1>Herramientas bioinformáticas</h1>
@@ -43,72 +42,17 @@ title: Herramientas bioinformáticas para el análisis de genomas y transcriptom
   </div>
 
   <div class="session-list">
-    <a class="session-row" href="dia-01.html">
-      <span class="session-number">01</span>
-      <span class="session-date">Jueves · 17 septiembre</span>
-      <span class="session-theme">Introducción y fundamentos</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-02.html">
-      <span class="session-number">02</span>
-      <span class="session-date">Viernes · 18 septiembre</span>
-      <span class="session-theme">NGS y preparación de datos</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-03.html">
-      <span class="session-number">03</span>
-      <span class="session-date">Lunes · 21 septiembre</span>
-      <span class="session-theme">Control y procesamiento de lecturas</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-04.html">
-      <span class="session-number">04</span>
-      <span class="session-date">Martes · 22 septiembre</span>
-      <span class="session-theme">Ensamblaje de genomas</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-05.html">
-      <span class="session-number">05</span>
-      <span class="session-date">Miércoles · 23 septiembre</span>
-      <span class="session-theme">Evaluación y anotación de genomas</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-06.html">
-      <span class="session-number">06</span>
-      <span class="session-date">Jueves · 24 septiembre</span>
-      <span class="session-theme">Predicción génica y elementos repetitivos</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-07.html">
-      <span class="session-number">07</span>
-      <span class="session-date">Viernes · 25 septiembre</span>
-      <span class="session-theme">lncRNA, ortólogos y familias génicas</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-08.html">
-      <span class="session-number">08</span>
-      <span class="session-date">Sábado · 26 septiembre</span>
-      <span class="session-theme">Ensamblaje y evaluación de transcriptomas</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-09.html">
-      <span class="session-number">09</span>
-      <span class="session-date">Lunes · 29 septiembre</span>
-      <span class="session-theme">RNA-seq y expresión diferencial</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-10.html">
-      <span class="session-number">10</span>
-      <span class="session-date">Martes · 30 septiembre</span>
-      <span class="session-theme">Metagenómica I</span>
-      <span class="session-arrow">→</span>
-    </a>
-    <a class="session-row" href="dia-11.html">
-      <span class="session-number">11</span>
-      <span class="session-date">Jueves · 1 octubre</span>
-      <span class="session-theme">Metagenómica II y cierre del curso</span>
-      <span class="session-arrow">→</span>
-    </a>
+    <a class="session-row" href="dia-01.html"><span class="session-number">01</span><span class="session-date">Jueves · 17 septiembre</span><span class="session-theme">Introducción y fundamentos</span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-02.html"><span class="session-number">02</span><span class="session-date">Viernes · 18 septiembre</span><span class="session-theme">NGS y preparación de datos</span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-03.html"><span class="session-number">03</span><span class="session-date">Lunes · 21 septiembre</span><span class="session-theme">Control y procesamiento de lecturas</span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-04.html"><span class="session-number">04</span><span class="session-date">Martes · 22 septiembre</span><span class="session-theme">Ensamblaje de genomas</span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-05.html"><span class="session-number">05</span><span class="session-date">Miércoles · 23 septiembre</span><span class="session-theme">Evaluación y anotación de genomas</span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-06.html"><span class="session-number">06</span><span class="session-date">Jueves · 24 septiembre</span><span class="session-theme">Predicción génica y elementos repetitivos</span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-07.html"><span class="session-number">07</span><span class="session-date">Viernes · 25 septiembre</span><span class="session-theme">lncRNA, ortólogos y familias génicas</span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-08.html"><span class="session-number">08</span><span class="session-date">Sábado · 26 septiembre</span><span class="session-theme">Ensamblaje y evaluación de transcriptomas</span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-09.html"><span class="session-number">09</span><span class="session-date">Lunes · 29 septiembre</span><span class="session-theme">RNA-seq y expresión diferencial</span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-10.html"><span class="session-number">10</span><span class="session-date">Martes · 30 septiembre</span><span class="session-theme">Metagenómica I</span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-11.html"><span class="session-number">11</span><span class="session-date">Jueves · 1 octubre</span><span class="session-theme">Metagenómica II y cierre del curso</span><span class="session-arrow">→</span></a>
   </div>
 </section>
 
