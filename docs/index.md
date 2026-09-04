@@ -33,46 +33,91 @@ title: Herramientas bioinformáticas para el análisis de genomas y transcriptom
   </div>
 </section>
 
-<section id="jornadas" class="section">
+<section id="jornadas" class="section jornadas-section">
   <div class="section-heading">
     <div>
       <span class="eyebrow">Ruta de aprendizaje</span>
-      <h2>Las primeras cuatro jornadas</h2>
+      <h2>Las 11 jornadas del curso</h2>
     </div>
-    <p>Construimos las habilidades paso a paso: primero el entorno, después los datos y finalmente los primeros análisis.</p>
+    <p>Un recorrido progresivo desde los fundamentos y el procesamiento de datos hasta el análisis de genomas, transcriptomas y metagenomas.</p>
   </div>
 
-  <div class="day-grid">
-    <a class="day-card" href="dia-01.html">
-      <span class="day-number">01</span>
-      <span class="day-date">Jueves · 17 septiembre</span>
-      <h3>Introducción y fundamentos</h3>
-      <p>Bioinformática, Linux, archivos, navegación y acceso al sistema HPC.</p>
-      <span class="card-link">Ver jornada →</span>
+  <div class="session-list">
+    <a class="session-row" href="dia-01.html">
+      <span class="session-number">01</span>
+      <span class="session-date">Jueves · 17 septiembre</span>
+      <span class="session-theme">Introducción y fundamentos</span>
+      <span class="session-arrow">→</span>
     </a>
 
-    <a class="day-card" href="dia-02.html">
-      <span class="day-number">02</span>
-      <span class="day-date">Viernes · 18 septiembre</span>
-      <h3>NGS y preparación de datos</h3>
-      <p>Plataformas de secuenciación, librerías, lecturas, formatos y línea de comandos.</p>
-      <span class="card-link">Ver jornada →</span>
+    <a class="session-row" href="dia-02.html">
+      <span class="session-number">02</span>
+      <span class="session-date">Viernes · 18 septiembre</span>
+      <span class="session-theme">NGS y preparación de datos</span>
+      <span class="session-arrow">→</span>
     </a>
 
-    <a class="day-card" href="dia-03.html">
-      <span class="day-number">03</span>
-      <span class="day-date">Lunes · 21 septiembre</span>
-      <h3>Control y procesamiento</h3>
-      <p>Calidad, FASTQ, filtrado, recorte, ventanas móviles y lecturas pareadas.</p>
-      <span class="card-link">Ver jornada →</span>
+    <a class="session-row" href="dia-03.html">
+      <span class="session-number">03</span>
+      <span class="session-date">Lunes · 21 septiembre</span>
+      <span class="session-theme">Control y procesamiento de lecturas</span>
+      <span class="session-arrow">→</span>
     </a>
 
-    <a class="day-card" href="dia-04.html">
-      <span class="day-number">04</span>
-      <span class="day-date">Martes · 22 septiembre</span>
-      <h3>Ensamblaje de genomas</h3>
-      <p>Estructura de genomas, algoritmos y ensamblaje de un genoma bacteriano.</p>
-      <span class="card-link">Ver jornada →</span>
+    <a class="session-row" href="dia-04.html">
+      <span class="session-number">04</span>
+      <span class="session-date">Martes · 22 septiembre</span>
+      <span class="session-theme">Ensamblaje de genomas</span>
+      <span class="session-arrow">→</span>
+    </a>
+
+    <a class="session-row" href="dia-05.html">
+      <span class="session-number">05</span>
+      <span class="session-date">Miércoles · 23 septiembre</span>
+      <span class="session-theme">Evaluación y anotación de genomas</span>
+      <span class="session-arrow">→</span>
+    </a>
+
+    <a class="session-row" href="dia-06.html">
+      <span class="session-number">06</span>
+      <span class="session-date">Jueves · 24 septiembre</span>
+      <span class="session-theme">Predicción génica y elementos repetitivos</span>
+      <span class="session-arrow">→</span>
+    </a>
+
+    <a class="session-row" href="dia-07.html">
+      <span class="session-number">07</span>
+      <span class="session-date">Viernes · 25 septiembre</span>
+      <span class="session-theme">lncRNA, ortólogos y familias génicas</span>
+      <span class="session-arrow">→</span>
+    </a>
+
+    <a class="session-row" href="dia-08.html">
+      <span class="session-number">08</span>
+      <span class="session-date">Sábado · 26 septiembre</span>
+      <span class="session-theme">Ensamblaje y evaluación de transcriptomas</span>
+      <span class="session-arrow">→</span>
+    </a>
+
+    <a class="session-row" href="dia-09.html">
+      <span class="session-number">09</span>
+      <span class="session-date">Lunes · 29 septiembre</span>
+      <span class="session-theme">RNA-seq y expresión diferencial</span>
+      <span class="session-arrow">→</span>
+    </a>
+
+    <a class="session-row" href="dia-10.html">
+      <span class="session-number">10</span>
+      <span class="session-date">Martes · 30 septiembre</span>
+      <span class="session-theme">Metagenómica I</span>
+      <span class="session-arrow">→</span>
+    </a>
+
+    <a class="session-row" href="dia-11.html">
+      <span class="session-number">11</span>
+      <span class="session-date">Jueves · 1 octubre</span>
+      <span class="session-theme">Metagenómica II y cierre del curso</span>
+      <span class="session-arrow">→</span>
     </a>
   </div>
 </section>
