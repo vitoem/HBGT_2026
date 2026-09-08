@@ -167,7 +167,7 @@ Revise el script de Slurm y el archivo manifesto. Discuta lo necesario.
 module load q1/mira/4.0.2
 
 mira manifest.conf > log_assembly.txt
-    ```
+```
 ---
 
 [← Volver a la portada](./)
