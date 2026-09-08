@@ -9,11 +9,11 @@ title: "Día 01 · Introducción y fundamentos"
 
 # 🖥️ Día 1: Introducción y Fundamentos del Curso
 
-Bienvenido al espacio de recursos del **Día 1** del curso **"Herramientas Bioinformáticas para el Análisis de Genomas y Transcriptomas"**. Este espacio ha sido diseñado para centralizar la información logística, los fundamentos teóricos de las ciencias ómicas, los conceptos de infraestructura de cómputo y la guía de inicio rápido en la terminal de UNIX/Linux.
+Bienvenid@ al espacio de recursos del **Día 1** del curso **"Herramientas Bioinformáticas para el Análisis de Genomas y Transcriptomas"**. Este espacio ha sido diseñado para centralizar la información logística, los fundamentos teóricos de las ciencias ómicas, los conceptos de infraestructura de cómputo y la guía de inicio rápido en la terminal de UNIX/Linux.
 
 ---
 
-## 📅 1. Información General y Logística
+### 📅 1. Información General y Logística
 
 El curso de Herramientas Bioinformáticas para el Análisis de Genomas y Transcriptomas está coordinado por el **Dr. Enrique Ibarra Laclette** y el **M. en C. Emanuel Villafán de la Torre**, y está dirigido a estudiantes y académicos que busquen incorporar el análisis informático masivo en sus proyectos de investigación.
 
@@ -37,7 +37,7 @@ Para acreditar de manera satisfactoria este curso, se empleará un esquema conti
 
 ---
 
-## 🧬 2. Genómica y Transcriptómica en la Era Ómica
+### 🌎 2. Genómica y Transcriptómica en la Era Ómica
 
 La biología clásica se ha visto profundamente transformada por los **desarrollos tecnológicos de secuenciación de siguiente generación (NGS)**. Esta revolución tecnológica nos ha forzado a transitar de una visión local (análisis de genes individuales) a una **visión global** de los fenómenos biológicos, caracterizada por un **gran volumen de datos** y una **mayor complejidad** en su análisis e interpretación. Así nacen las **Ciencias Ómicas**.
 
@@ -71,7 +71,7 @@ Mientras que el genoma representa la biblioteca estática de posibilidades de un
 
 ---
 
-## 💻 3. Cómputo de Alto Rendimiento (HPC) y Bioinformática
+### 💻 3. Cómputo de Alto Rendimiento (HPC) y Bioinformática
 
 Para abordar el procesamiento de gigabytes de datos provenientes de plataformas NGS, la biología clásica recurre a la bioinformática y al cómputo científico.
 
@@ -88,9 +88,9 @@ Para abordar el procesamiento de gigabytes de datos provenientes de plataformas 
 
 ---
 
-## 🐚 4. Fundamentos de la Shell de UNIX
+### 🐚 4. Fundamentos de la Shell de UNIX
 
-La gran mayoría de los paquetes de software especializados en bioinformática carecen de una interfaz gráfica de usuario (GUI) [2]. Para utilizarlos, es indispensable interactuar directamente con la **Shell de UNIX/Linux** mediante una **Línea de Comandos**. 
+La gran mayoría de los paquetes de software especializados en bioinformática carecen de una interfaz gráfica de usuario (GUI). Para utilizarlos, es indispensable interactuar directamente con la **Shell de UNIX/Linux** mediante una **Línea de Comandos**. 
 
 ### El Sistema Operativo GNU/Linux
 *   **GNU/Linux:** Es un sistema operativo de libre distribución (Open Source), basado en UNIX, que integra el Kernel desarrollado por Linus Torvalds con las herramientas y compiladores provistos por el proyecto GNU.
@@ -113,9 +113,9 @@ La gran mayoría de los paquetes de software especializados en bioinformática c
                 [ CPU ]  [ Memoria RAM ]  [ Almacenamiento ]
 ```
 
-## 📂 5. Guía de Referencia y Sintaxis de Comandos Básicos
+### 📂 5. Guía de Referencia y Sintaxis de Comandos Básicos
 
-Para interactuar de manera eficiente con el **Sistema de Archivos** (el cual organiza nuestros datos de forma jerárquica en archivos y directorios) [20], debemos dominar la sintaxis de la línea de comandos.
+Para interactuar de manera eficiente con el **Sistema de Archivos** (el cual organiza nuestros datos de forma jerárquica en archivos y directorios), debemos dominar la sintaxis de la línea de comandos.
 
 ### Sintaxis Estándar de la Terminal
 ```bash
@@ -141,29 +141,29 @@ La Shell cuenta con atajos predefinidos que facilitan el movimiento rápido a tr
 *   `-` : Te regresa instantáneamente al **directorio de trabajo anterior** en el que te encontrabas posicionado antes de tu último `cd`.
 
 ```
-                     ┌──────────────────┐
-                     │   Raíz: '/'      │
-                     └────────┬─────────┘
+                     ┌───────────────────┐
+                     │   Raíz: '/'       │
+                     └─────────┬─────────┘
                               ▼
-                     ┌──────────────────┐
-                     │   '/Users'       │
-                     └────────┬─────────┘
+                     ┌───────────────────┐
+                     │   '/Users'        │
+                     └────────┬──────────┘
                               ▼
-                     ┌──────────────────┐
-                     │ '/Users/bio'   │  <─── Directorio Home ('~')
-                     └────────┬─────────┘
+                     ┌───────────────────┐
+                     │ '/Users/bio'      │  <─── Directorio Home ('~')
+                     └────────┬──────────┘
                               ▼
-                     ┌──────────────────┐
-                     │ '/Users/bio/   │  <─── Posición actual (pwd)
-                     │  data'           │       Si haces 'cd ..' vas a '/Users/nelle'
-                     └──────────────────┘
+                     ┌───────────────────┐
+                     │ '/Users/bio/data' │  <─── Posición actual (pwd)
+                     │                   │       Si haces 'cd ..' vas a '/Users/bio'
+                     └───────────────────┘
 ```
 
 ### Rutas Absolutas vs. Rutas Relativas
 Para indicarle al sistema la ubicación de un elemento en el disco, podemos emplear dos tipos de rutas:
-1.  **Rutas Absolutas:** Describen la ubicación inequívoca de un archivo o carpeta partiendo obligatoriamente desde el directorio raíz (`/`) del sistema de archivos [26, 27]. No importa dónde estés parado, una ruta absoluta siempre funciona igual.
-    *   *Ejemplo:* `/Users/nelle/data/proteina.txt`
-2.  **Rutas Relativas:** Describen la ubicación de un elemento tomando como punto de partida de referencia tu posición (*working directory*) actual [26, 27]. Nunca inician con una diagonal raíz `/`.
+1.  **Rutas Absolutas:** Describen la ubicación inequívoca de un archivo o carpeta partiendo obligatoriamente desde el directorio raíz (`/`) del sistema de archivos. No importa dónde estés parado, una ruta absoluta siempre funciona igual.
+    *   *Ejemplo:* `/Users/bio/data/proteina.txt`
+2.  **Rutas Relativas:** Describen la ubicación de un elemento tomando como punto de partida de referencia tu posición (*working directory*) actual. Nunca inician con una diagonal raíz `/`.
     *   *Ejemplo:* `data/proteina.txt` o `../backup/archivo.zip`
 
 ---
