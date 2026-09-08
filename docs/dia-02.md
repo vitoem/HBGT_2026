@@ -11,7 +11,7 @@ Bienvenidos a la página de recursos del **Día 2** del curso **"Herramientas Bi
 
 ---
 
-## Unidad 1: Evolución de Genomas Complejos y Poliploidía
+### Unidad 1: Evolución de Genomas Complejos y Poliploidía
 
 Para interpretar correctamente los ensamblajes bioinformáticos, debemos comprender las fuerzas evolutivas que estructuran los genomas eucariotas, particularmente en plantas, donde los genomas sufren cambios drásticos en tamaño y contenido génico.
 
@@ -30,7 +30,7 @@ La **sintenia** es la conservación del orden de los genes (co-linealidad) entre
 
 ---
 
-## 💻 Unidad 2: Práctica de Linux II (Organización y Seguridad)
+### 💻 Unidad 2: Práctica de Linux II (Organización y Seguridad)
 
 En esta práctica avanzamos más allá de la navegación básica para aprender a organizar directorios jerárquicos complejos y manipular datos con seguridad.
 
