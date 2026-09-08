@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Día 02 · NGS y preparación de datos"
+title: "Día 02 · Nociones generales de los genes y genomas"
 ---
 
 <span class="eyebrow">Viernes · 18 septiembre</span>
