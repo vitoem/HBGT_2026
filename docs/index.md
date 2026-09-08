@@ -43,7 +43,7 @@ title: Herramientas bioinformáticas para el análisis de genomas y transcriptom
 
   <div class="session-list">
     <a class="session-row" href="dia-01.html"><span class="session-number">01</span><span class="session-date">Jueves · 17 septiembre</span><span class="session-theme">Introducción y fundamentos</span><span class="session-arrow">→</span></a>
-    <a class="session-row" href="dia-02.html"><span class="session-number">02</span><span class="session-date">Viernes · 18 septiembre</span><span class="session-theme">Nociones generales de los genes y genomas </span><span class="session-arrow">→</span></a>
+    <a class="session-row" href="dia-02.html"><span class="session-number">02</span><span class="session-date">Viernes · 18 septiembre</span><span class="session-theme">Nociones generales de los genes y genomas</span><span class="session-arrow">→</span></a>
     <a class="session-row" href="dia-03.html"><span class="session-number">03</span><span class="session-date">Lunes · 21 septiembre</span><span class="session-theme">Control y procesamiento de lecturas</span><span class="session-arrow">→</span></a>
     <a class="session-row" href="dia-04.html"><span class="session-number">04</span><span class="session-date">Martes · 22 septiembre</span><span class="session-theme">Ensamblaje de genomas</span><span class="session-arrow">→</span></a>
     <a class="session-row" href="dia-05.html"><span class="session-number">05</span><span class="session-date">Miércoles · 23 septiembre</span><span class="session-theme">Evaluación y anotación de genomas: predicción de modelos génicos</span><span class="session-arrow">→</span></a>
