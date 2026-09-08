@@ -5,7 +5,7 @@ title: "Día 02 · Nociones generales de los genes y genomas"
 
 <span class="eyebrow">Viernes · 18 septiembre</span>
 
-## Día 2: Nociones generales de los genes y genomas; Linux Avanzado.
+# Día 2: Nociones generales de los genes y genomas; Linux Avanzado.
 
 Bienvenidos a la página de recursos del **Día 2** del curso **"Herramientas Bioinformáticas para el Análisis de Genomas y Transcriptomas"**. En esta jornada profundizaremos en cómo los eventos evolutivos moldean la arquitectura de los genomas complejos y avanzaremos en el dominio de la terminal de Linux para la organización segura de proyectos bioinformáticos.
 
