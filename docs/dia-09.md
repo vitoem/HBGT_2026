@@ -381,5 +381,3 @@ grep -Ff TreatmentY_DEG.IDs ../../../Practica10/BlastResult > DEGTreatmentYAnnot
 | Anotación de los DEGs | `DEGTreatmentXAnnotation.txt`, `DEGTreatmentYAnnotation.txt` |
 
 ---
-
-[← Volver a la portada](./)
