@@ -10,7 +10,7 @@ title: Herramientas bioinformáticas para el análisis de genomas y transcriptom
   <p class="hero-text">Un entrenamiento intensivo y progresivo para transformar datos de secuenciación en resultados biológicos confiables, reproducibles e interpretables.</p>
   <div class="hero-actions">
     <a class="button primary" href="#jornadas">Explorar el curso</a>
-    <a class="button secondary" href="#materiales">Ver materiales</a>
+    <a class="button secondary" href="programa.html">Ver Programa</a>
   </div>
 </header>
 
