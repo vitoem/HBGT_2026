@@ -3,7 +3,7 @@ layout: default
 title: "Día 08 · Ensamblaje y evaluación de transcriptomas"
 ---
 
-<span class="eyebrow">Sábado · 26 septiembre</span>
+<span class="eyebrow">Lunes · 28 septiembre</span>
 
 # 📊 Día 8: Aplicabilidad de Transcriptomas y Criterios de Calidad en el Ensamblado
 
