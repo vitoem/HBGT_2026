@@ -8,8 +8,37 @@
 </head>
 
 <body class="{% if page.url contains '/dia-' %}day-page{% else %}home-page{% endif %}">
-  <main class="wrapper">
+  <main id="top" class="wrapper">
     {{ content }}
+    
+    {% if page.url contains '/dia-' %}
+
+    {% assign day_number = page.url | split: '/dia-' | last | split: '.' | first | plus: 0 %}
+
+    <nav class="day-navigation" aria-label="Navegación de la jornada">
+
+      <a href="{{ '/' | relative_url }}">← Portada</a>
+
+      <a href="#top">↑ Inicio</a>
+
+      {% if day_number < 11 %}
+
+        {% assign next_day = day_number | plus: 1 %}
+
+        {% if next_day < 10 %}
+          {% assign next_day_path = '/dia-0' | append: next_day | append: '.html' %}
+        {% else %}
+          {% assign next_day_path = '/dia-' | append: next_day | append: '.html' %}
+        {% endif %}
+
+        <a href="{{ next_day_path | relative_url }}">Día {{ next_day }} →</a>
+
+      {% endif %}
+
+    </nav>
+
+  {% endif %}
+    
   </main>
 
   <script>
