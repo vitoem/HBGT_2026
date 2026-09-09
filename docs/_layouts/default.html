@@ -11,5 +11,38 @@
   <main class="wrapper">
     {{ content }}
   </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      /*
+       * Detecta nombres de archivos escritos entre backticks
+       * y les aplica automáticamente la clase .file-ref.
+       */
+
+      const filePattern =
+        /^(?:\.{0,2}\/)?[\w.@+-]+(?:\/[\w.@+-]+)*\.(?:slurm|sh|bash|py|pl|r|R|txt|csv|tsv|fa|fna|fasta|faa|fq|fastq|gz|bz2|xz|zip|tar|tgz|gff|gff3|gtf|bed|sam|bam|vcf|vcf\.gz|yml|yaml|json|xml|html|md|pdf)$/i;
+
+      document.querySelectorAll(".day-page code").forEach(function (code) {
+
+        // No modificar código que forma parte de un bloque de código.
+        if (code.closest("pre")) {
+          return;
+        }
+
+        // No modificar elementos que ya tengan una clase especial.
+        if (code.classList.contains("language-") ||
+            code.classList.contains("file-ref")) {
+          return;
+        }
+
+        const text = code.textContent.trim();
+
+        if (filePattern.test(text)) {
+          code.classList.add("file-ref");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
