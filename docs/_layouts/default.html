@@ -44,5 +44,55 @@
       });
     });
   </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll(".day-page pre").forEach(function (pre) {
+
+    // Evitar agregar el botón dos veces
+    if (pre.querySelector(".copy-code-button")) {
+      return;
+    }
+
+    const button = document.createElement("button");
+    button.className = "copy-code-button";
+    button.type = "button";
+    button.textContent = "Copiar";
+
+    button.addEventListener("click", async function () {
+
+      const code = pre.querySelector("code");
+
+      if (!code) {
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(code.textContent);
+
+        button.textContent = "✓ Copiado";
+        button.classList.add("copied");
+
+        setTimeout(function () {
+          button.textContent = "Copiar";
+          button.classList.remove("copied");
+        }, 1800);
+
+      } catch (error) {
+        button.textContent = "Error";
+        
+        setTimeout(function () {
+          button.textContent = "Copiar";
+        }, 1800);
+      }
+    });
+
+    pre.appendChild(button);
+  });
+
+});
+</script>
+  
 </body>
 </html>
