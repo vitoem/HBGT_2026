@@ -439,5 +439,3 @@ Analice el archivo de salida `Unigenes_vs_PlantSubsetDB` (formato tabular BLAST,
 | Contraste BLASTp | `Unigenes_vs_PlantSubsetDB` |
 
 ---
-
-[← Volver a la portada](./)
