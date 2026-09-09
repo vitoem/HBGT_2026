@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 </head>
 
-<body>
+<body class="{% if page.url contains '/dia-' %}day-page{% else %}home-page{% endif %}">
   <main class="wrapper">
     {{ content }}
   </main>
