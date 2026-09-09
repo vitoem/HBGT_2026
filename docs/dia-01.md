@@ -167,5 +167,3 @@ Para indicarle al sistema la ubicación de un elemento en el disco, podemos empl
     *   *Ejemplo:* `data/proteina.txt` o `../backup/archivo.zip`
 
 ---
-
-[← Volver a la portada](./)
