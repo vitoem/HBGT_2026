@@ -159,6 +159,8 @@ TRANSCRIPTS=transcript_chr38.gtf
 
 evolinc-part-I.sh -c ${TRANSCRIPTS} -g ${GENOME} -u ${GENOMEANNOTATION} -o Results -n 10
 ```
+[← Volver a la portada](./)
+
 
 **Paso 4.** Guarda los cambios, carga el módulo de Evolinc y abre el manual. Ejecuta el script.
 
@@ -334,5 +336,3 @@ RepeatMasker -q -x -gff -lib ../DeNovoTEs.fasta GenomeSequences.fasta
 Una vez enmascarado el genoma, realice la predicción de modelos génicos utilizando evidencia transcripcional (`TranscriptomeAssembly.fasta`), tal y como se hizo en la Práctica05 (Ejercicio02). Utilice tanto el genoma enmascarado como el genoma sin enmascarar. Una vez parseados sus resultados, transfiera los archivos necesarios a su máquina local y compare utilizando JBrowse.
 
 ---
-
-[← Volver a la portada](./)
