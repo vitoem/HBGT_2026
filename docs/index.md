@@ -99,5 +99,5 @@ title: Herramientas bioinformáticas para el análisis de genomas y transcriptom
 
 <footer class="site-footer">
   <strong>Herramientas bioinformáticas para el análisis de genomas y transcriptomas</strong>
-  <span>INECOL · Campus 3 · Salón Dahlia</span>
+  <span>INECOL · Campus 3 · Salón Biomimic</span>
 </footer>
