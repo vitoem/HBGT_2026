@@ -272,5 +272,4 @@ Estime las métricas para los archivos recientemente generados y compare las sal
 | Métricas finales de proteínas | `MetricasMiraPRT.txt`, `MetricasTrinityPRT.txt` |
 
 ---
-
-
+[← Volver a la portada](./)
