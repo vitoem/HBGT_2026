@@ -186,9 +186,57 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 .day-page table code { font-size:.88em; }
 
 /* ---------- Navegación de jornadas ---------- */
-.day-navigation { display:flex; justify-content:space-between; gap:12px; margin-top:58px; padding-top:24px; border-top:1px solid var(--line); }
-.day-navigation a { display:inline-block; padding:10px 15px; border:1px solid var(--line); border-radius:8px; background:white; color:var(--accent) !important; text-decoration:none !important; font-weight:700; }
-.day-navigation a:hover { background:var(--soft); border-color:#b9cdbf; }
+.day-navigation {
+  display:grid;
+  grid-template-columns: 1fr auto auto 1fr;
+  align-items:center;
+  gap:12px;
+  margin-top:58px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+
+.day-navigation a {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 17px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:#fff;
+  color:var(--accent) !important;
+  text-decoration:none !important;
+  font-weight:700;
+  font-size:.9rem;
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    transform .15s ease;
+}
+
+.day-navigation a:first-child {
+  justify-self:start;
+}
+
+.day-navigation a:nth-child(2),
+.day-navigation a:nth-child(3) {
+  justify-self:center;
+}
+
+.day-navigation a:last-child {
+  justify-self:end;
+}
+
+.day-navigation a:hover {
+  background:var(--soft);
+  border-color:#b9cdbf;
+  transform:translateY(-1px);
+}
+
+.day-navigation .nav-placeholder {
+  width:1px;
+}
 
 @media(max-width:800px){
   .course-meta{grid-template-columns:1fr 1fr}.course-meta div:nth-child(2){border-right:0}.course-meta div{border-bottom:1px solid var(--line)}
