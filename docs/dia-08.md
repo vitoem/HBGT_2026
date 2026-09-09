@@ -272,4 +272,172 @@ Estime las métricas para los archivos recientemente generados y compare las sal
 | Métricas finales de proteínas | `MetricasMiraPRT.txt`, `MetricasTrinityPRT.txt` |
 
 ---
+
+# Práctica 10 
+
+Este documento reúne el instructivo de la práctica junto con los scripts de SLURM involucrados en el flujo de anotación funcional de los unigenes ensamblados con Trinity: `FormatDB.slurm` (construcción de la base de datos de referencia), `AlignWise.slurm` (identificación de CDS/ORF codificante vía alineamiento contra proteínas de referencia) y un paso final de `BLASTp` contra esa misma base de datos, para contrastar los productos proteicos obtenidos.
+
+**Flujo general de la práctica:**
+
+1. Se parte de los unigenes limpios de Trinity (`Trinity.fasta.clean`, generado en la Práctica 09).
+2. Se construye una base de datos de referencia de proteínas y nucleótidos de 8 especies de plantas angiospermas (`FormatDB.slurm`).
+3. Se ejecuta (o se analiza, sin ejecutar por el tiempo de cómputo requerido) `AlignWise.pl`, que alinea los unigenes contra dicha base de datos para identificar la región codificante (CDS) y su traducción a proteína.
+4. Se comparan los archivos resultantes (`Trinity_Awise_orf.fas`, `Trinity_Awise_prot.fas`) contra el archivo de entrada, y se extraen casos particulares con `cdbfasta`/`cdbyank`.
+5. Como paso final, se contrastan las proteínas predichas (`Trinity_Awise_prot.fas`) mediante `BLASTp` contra la misma base de datos de proteínas construida en el paso 2 (`plant_subset_db.faa`), para identificar los mejores hits homólogos entre las 8 especies de referencia.
+
+---
+
+## Paso previo — Construcción de la base de datos de referencia
+
+Antes de ejecutar `AlignWise`, es necesario contar con la base de datos de proteínas y nucleótidos contra la cual se realizará el alineamiento. Esta base se construye a partir de los archivos `.faa` y `.fna` de las especies de referencia ubicados en `AlignWiseDB/`, y se ejecuta con `FormatDB.slurm`.
+
+### `AlignWiseDB/FormatDB.slurm`
+
+```bash
+#!/bin/bash
+#SBATCH -J FormatDB
+#SBATCH -n 1
+#SBATCH --mem 25000
+#SBATCH -t 365-00
+#SBATCH -e err.format.%j
+#SBATCH -o out-format.%j
+
+module load blast-plus/2.9.0/gcc/9.3.0-zxxq
+
+cat *.faa > plant_subset_db.faa
+cat *.fna > plant_subset_db.fna
+
+makeblastdb -in plant_subset_db.faa -dbtype prot -parse_seqids -hash_index 
+makeblastdb -in plant_subset_db.fna -dbtype nucl -parse_seqids -hash_index 
+```
+
+```bash
+cd AlignWiseDB
+sbatch FormatDB.slurm
+cd ..
+```
+
+Este script concatena todos los archivos de proteínas (`*.faa`) y de nucleótidos (`*.fna`) presentes en la carpeta `AlignWiseDB/` en dos archivos únicos, `plant_subset_db.faa` y `plant_subset_db.fna`, y luego usa `makeblastdb` (BLAST+) para formatearlos como bases de datos de BLAST (proteína y nucleótido, respectivamente). Estas bases son las que se referencian tanto en `AlignWise.slurm` como, más adelante, en el paso de `BLASTp`.
+
+---
+
+## Ejercicio 01 — AlignWise: identificación de CDS y traducción a proteína
+
+Revise el contenido y las opciones a utilizar en el script `AlignWise.slurm`, discuta cada una de ellas. Debido al tiempo de cómputo necesario para este proceso (21 hrs), este no será ejecutado durante el curso; sin embargo, analizaremos los archivos que resultarían tras ejecutar el mismo.
+
+### `AlignWise.slurm`
+
+```bash
+#!/bin/bash
+#SBATCH -J AlignWise
+#SBATCH -n 20
+#SBATCH -N 1
+#SBATCH --mem 75G
+#SBATCH -t 0
+#SBATCH -e AlignWise.e%j
+#SBATCH -o AlignWise.o%j
+#SBATCH -p q1
+
+module load q1/alignwise/master
+
+#Lanzar AlignWise utilizando las bases de datos AlingWiseDB/plant_subset_db*
+#NOTA: Esta base de datos contiene las proteinas de únicamente 8 species de plantas angiospermas (Amborella trichopoda, Asparagus officinalis, Macadamia integrifolia, Solanum lycopersicum, Arabidopsis thaliana, Chenopodium quinoa, Nymphaea colorata & Vitis vinifera). Usualmente en solemos utilizar tantas especies como sea posible, incluso dependiendo del objetivo puede considerar aquellas especies disponibles en genbank cuyo genoma ha sido anotado con un mismo pipeline (NCBI Eukaryotic Genome Annotation Pipeline). Haciendo uso de la cantidad de recursos computacionales especificados este proceso demora aprox. 21 hrs.
+
+AlignWise.pl -p AlignWiseDB/plant_subset_db.faa -n AlignWiseDB/plant_subset_db.fna -T 20 Trinity.fasta.clean
+```
+
+```bash
+sbatch AlignWise.slurm
+```
+
+> Nota: el script emplea las bases de datos generadas justo en el paso anterior (`AlignWiseDB/plant_subset_db.faa` y `AlignWiseDB/plant_subset_db.fna`), por lo que `FormatDB.slurm` debe haberse ejecutado con éxito antes de correr `AlignWise.slurm`.
+
+Note que se generan dos archivos que incluyen el prefijo `Awise`: `Trinity_Awise_orf.fas` y `Trinity_Awise_prot.fas`. Cuente el total de secuencias contenidas en estos y compárelos con el archivo de entrada, es decir, aquel resultante del ensamblado realizado con Trinity (`Trinity.fasta.clean`).
+
+```bash
+grep -c ">" Trinity.fasta.clean Trinity_Awise_orf.fas Trinity_Awise_prot.fas
+```
+
+Estime la longitud de cada secuencia contenida en estos archivos e identifique en esta salida algún unigén en el que el tamaño del unigén sea más largo que el ORF identificado; analice y explique.
+
+```bash
+perl fastx-length.pl Trinity.fasta.clean > UniGenes_Length
+perl fastx-length.pl Trinity_Awise_orf.fas > CDS_Length
+perl fastx-length.pl Trinity_Awise_prot.fas > PRT_Length
+
+head -n20 UniGenes_Length CDS_Length PRT_Length
+```
+
+Genere un archivo fasta conteniendo, para dicho unigén, las secuencias correspondientes (Unigene, CDS & PRT):
+
+```bash
+module load cdbfasta/2017-03-16/gcc/9.3.0-afj3
+
+cdbfasta Trinity.fasta.clean
+cdbfasta Trinity_Awise_orf.fas
+cdbfasta Trinity_Awise_prot.fas
+
+echo TRINITY_DN50_c0_g1_i1 | cdbyank Trinity.fasta.clean.cidx > UniGeneDN50
+echo TRINITY_DN50_c0_g1_i1 | cdbyank Trinity_Awise_orf.fas.cidx >> UniGeneDN50
+echo TRINITY_DN50_c0_g1_i1 | cdbyank Trinity_Awise_prot.fas.cidx >> UniGeneDN50
+
+echo TRINITY_DN25_c0_g1_i1 | cdbyank Trinity.fasta.clean.cidx > UniGeneDN25
+echo TRINITY_DN25_c0_g1_i1 | cdbyank Trinity_Awise_orf.fas.cidx >> UniGeneDN25
+echo TRINITY_DN25_c0_g1_i1 | cdbyank Trinity_Awise_prot.fas.cidx >> UniGeneDN25
+
+echo TRINITY_DN15_c0_g1_i1 | cdbyank Trinity.fasta.clean.cidx > UniGeneDN15
+echo TRINITY_DN15_c0_g1_i1 | cdbyank Trinity_Awise_orf.fas.cidx >> UniGeneDN15
+echo TRINITY_DN15_c0_g1_i1 | cdbyank Trinity_Awise_prot.fas.cidx >> UniGeneDN15
+```
+
+---
+
+## Ejercicio 02 — Contraste por BLASTp contra la base de datos de referencia
+
+Como paso final del flujo de esta práctica, contraste las proteínas predichas por AlignWise (`Trinity_Awise_prot.fas`) mediante `BLASTp` contra la base de datos de proteínas de las 8 especies de plantas angiospermas construida en el paso previo (`AlignWiseDB/plant_subset_db.faa`), en lugar de una base de datos externa (p. ej. solo Arabidopsis). Esto permite identificar el mejor hit homólogo entre todas las especies de referencia disponibles, aprovechando la misma base de datos ya formateada con `makeblastdb` (BLAST+).
+
+### `BLASTp.slurm` (ajustado a `plant_subset_db.faa`)
+
+```bash
+#!/bin/bash
+#SBATCH -J BLASTp
+#SBATCH -n 4
+#SBATCH -N 1
+#SBATCH --mem 32G
+#SBATCH -t 0
+#SBATCH -p q2
+#SBATCH -e BLASTp.e%j
+#SBATCH -o BLASTp.o%j
+
+module load blast-plus/2.9.0/gcc/9.3.0-zxxq
+
+blastp -num_threads 4 \
+  -db AlignWiseDB/plant_subset_db.faa \
+  -query Trinity_Awise_prot.fas \
+  -max_target_seqs 1 \
+  -evalue 0.00001 \
+  -outfmt 6 \
+  -out Unigenes_vs_PlantSubsetDB
+```
+
+```bash
+sbatch BLASTp.slurm
+```
+
+Analice el archivo de salida `Unigenes_vs_PlantSubsetDB` (formato tabular BLAST, `-outfmt 6`) y compare los mejores hits obtenidos frente a las 8 especies de referencia con lo observado en los pasos anteriores de `AlignWise`.
+
+---
+
+## Resumen de archivos generados
+
+| Etapa | Archivos generados |
+|---|---|
+| Construcción de base de datos | `plant_subset_db.faa`, `plant_subset_db.fna` (en `AlignWiseDB/`) y sus índices BLAST |
+| AlignWise | `Trinity_Awise_orf.fas`, `Trinity_Awise_prot.fas` |
+| Métricas de longitud | `UniGenes_Length`, `CDS_Length`, `PRT_Length` |
+| Extracción de casos particulares | `UniGeneDN50`, `UniGeneDN25`, `UniGeneDN15` |
+| Contraste BLASTp | `Unigenes_vs_PlantSubsetDB` |
+
+---
+
 [← Volver a la portada](./)
