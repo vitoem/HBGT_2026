@@ -45,12 +45,12 @@
     });
   </script>
 
-  <script>
+ <script>
 document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".day-page pre").forEach(function (pre) {
 
-    // Evitar agregar el botón dos veces
+    // Evitar botones duplicados
     if (pre.querySelector(".copy-code-button")) {
       return;
     }
@@ -58,7 +58,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const button = document.createElement("button");
     button.className = "copy-code-button";
     button.type = "button";
-    button.textContent = "Copiar";
+    button.setAttribute("aria-label", "Copiar código");
+    button.setAttribute("title", "Copiar código");
+
+    // Icono de copiar
+    button.innerHTML = `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+        <path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"></path>
+      </svg>
+    `;
 
     button.addEventListener("click", async function () {
 
@@ -71,20 +80,37 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         await navigator.clipboard.writeText(code.textContent);
 
-        button.textContent = "✓ Copiado";
+        // Mostrar check
+        button.innerHTML = `
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12.5l4 4L19 7"></path>
+          </svg>
+        `;
+
+        button.setAttribute("aria-label", "Código copiado");
+        button.setAttribute("title", "Código copiado");
         button.classList.add("copied");
 
         setTimeout(function () {
-          button.textContent = "Copiar";
+
+          // Volver al icono de copiar
+          button.innerHTML = `
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+              <path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          `;
+
+          button.setAttribute("aria-label", "Copiar código");
+          button.setAttribute("title", "Copiar código");
           button.classList.remove("copied");
+
         }, 1800);
 
       } catch (error) {
-        button.textContent = "Error";
-        
-        setTimeout(function () {
-          button.textContent = "Copiar";
-        }, 1800);
+
+        console.error("No fue posible copiar el código:", error);
+
       }
     });
 
