@@ -299,5 +299,3 @@ srun --mem 8G -n1 -p q2 sort -k2,2 -n pacbio_length.tsv | tail -n 1
 srun --mem 8G -n1 -p q2 awk '{sum = sum + $2} END {print sum/NR}' pacbio_length.tsv
 ```
 ---
-
-[← Volver a la portada](./)
