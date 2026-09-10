@@ -5,7 +5,7 @@ title: "Día 06 · Predicción génica y elementos repetitivos"
 
 <span class="eyebrow">Jueves · 24 septiembre</span>
 
-## Día 6: Identificación de RNAs No Codificantes (ncRNAs) y Elementos Repetitivos.
+# Día 6: Identificación de RNAs No Codificantes (ncRNAs) y Elementos Repetitivos.
 
 Bienvenid@s a la página de recursos del **Día 6** del curso **"Herramientas Bioinformáticas para el Análisis de Genomas y Transcriptomas"**. En esta jornada exploraremos los componentes más abundantes y dinámicos de los genomas eucariotas: la fracción repetitiva dominada por los **elementos transponibles (TEs)** y la fracción no codificante funcional representada por los **RNAs no codificantes (ncRNAs)**.
 
