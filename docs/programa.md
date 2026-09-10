@@ -50,16 +50,16 @@ title: Programa
 
 | Práctica | Día | Título | Herramientas principales |
 |---|---|---|---|
-| 01 | Día 3 | Preprocesamiento de secuencias | FastQC, FASTX-Toolkit, Trimmomatic, SeqPrep, samtools, bedtools, bioawk |
-| 02 | Día 4 | Ensamblado de genomas (bacterianos) | Newbler, MIRA |
-| 03 | Día 5 | Métricas de ensamblado y evaluación con BUSCO | assemblathon_stats.pl, BUSCO |
-| 04 | Día 5 | Anotación de genomas procariontes | DFAST, Prokka/Proksee |
-| 05 | Día 5 | Predicción de modelos génicos | Augustus, BLAT, JBrowse |
-| 06 | Día 6 | Identificación de lncRNAs | Evolinc-I, gffread, bedtools |
-| 07 | Día 6 | Otros ncRNAs y elementos transponibles | Infernal/Rfam, LTR_Finder, RepeatMasker |
-| 08 | Día 7 | Ensamblado de novo de transcriptomas | MIRA, Trinity |
-| 09 | Día 8 | Limpieza, ORFs y traducción | SeqClean, EMBOSS (getorf), translate2aa.pl |
-| 10 | Día 8 | Anotación funcional de unigenes | makeblastdb, AlignWise, BLASTp |
-| 11 | Día 9 | Expresión diferencial | RSEM, Trinity (abundance_estimates_to_matrix.pl, run_DE_analysis.pl, analyze_diff_expr.pl), DESeq2, cdbfasta |
+| [01](dia-03.html#practica-01) | Día 3 | Preprocesamiento de secuencias | FastQC, FASTX-Toolkit, Trimmomatic, SeqPrep, samtools, bedtools, bioawk |
+| [02](dia-04.html#practica-02) | Día 4 | Ensamblado de genomas (bacterianos) | Newbler, MIRA |
+| [03](dia-05.html#practica-03) | Día 5 | Métricas de ensamblado y evaluación con BUSCO | assemblathon_stats.pl, BUSCO |
+| [04](dia-05.html#practica-04) | Día 5 | Anotación de genomas procariontes | DFAST, Prokka/Proksee |
+| [05](dia-05.html#practica-05) | Día 5 | Predicción de modelos génicos | Augustus, BLAT, JBrowse |
+| [06](dia-06.html#practica-06) | Día 6 | Identificación de lncRNAs | Evolinc-I, gffread, bedtools |
+| [07](dia-06.html#practica-07) | Día 6 | Otros ncRNAs y elementos transponibles | Infernal/Rfam, LTR_Finder, RepeatMasker |
+| [08](dia-07.html#practica-08) | Día 7 | Ensamblado de novo de transcriptomas | MIRA, Trinity |
+| [09](dia-08.html#practica-09) | Día 8 | Limpieza, ORFs y traducción | SeqClean, EMBOSS (getorf), translate2aa.pl |
+| [10](dia-08.html#practica-10) | Día 8 | Anotación funcional de unigenes | makeblastdb, AlignWise, BLASTp |
+| [11](dia-09.html#practica-11) | Día 9 | Expresión diferencial | RSEM, Trinity (abundance_estimates_to_matrix.pl, run_DE_analysis.pl, analyze_diff_expr.pl), DESeq2, cdbfasta |
 
 ---
