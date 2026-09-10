@@ -5,7 +5,7 @@ title: "Día 05 · Evaluación y anotación de genomas"
 
 <span class="eyebrow">Miércoles · 23 septiembre</span>
 
-## 🏷️ Día 5: Anotación de Genomas, Métodos y Bases de Datos
+# 🏷️ Día 5: Anotación de Genomas, Métodos y Bases de Datos
 
 Bienvenid@s a la página de recursos del **Día 5** del curso **"Herramientas Bioinformáticas para el Análisis de Genomas y Transcriptomas"**. En esta jornada nos enfocaremos en descifrar el significado biológico de las secuencias ensambladas: el proceso de **Anotación de Genomas**. Aprenderemos a identificar estructuralmente los genes y otros elementos funcionales, a predecir sus funciones biológicas mediante homología y modelos estadísticos, y a utilizar las bases de datos de referencia más importantes de la disciplina.
 
