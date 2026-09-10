@@ -6,8 +6,6 @@ title: Herramientas bioinformáticas para el análisis de genomas y transcriptom
   <div class="hero-kicker">INECOL · 2026 · CURSO PRÁCTICO</div>
   <h1>Herramientas bioinformáticas</h1>
   <p class="hero-subtitle">para el análisis de genomas y transcriptomas</p>
-  <p class="hero-lead">De la secuencia cruda al conocimiento biológico</p>
-  <p class="hero-text">Un entrenamiento intensivo y progresivo para transformar datos de secuenciación en resultados biológicos confiables, reproducibles e interpretables.</p>
   <div class="hero-actions">
     <a class="button primary" href="#jornadas">Explorar el curso</a>
     <a class="button secondary" href="programa.html">Ver Programa</a>
