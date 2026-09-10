@@ -159,8 +159,6 @@ TRANSCRIPTS=transcript_chr38.gtf
 
 evolinc-part-I.sh -c ${TRANSCRIPTS} -g ${GENOME} -u ${GENOMEANNOTATION} -o Results -n 10
 ```
-[← Volver a la portada](./)
-
 
 **Paso 4.** Guarda los cambios, carga el módulo de Evolinc y abre el manual. Ejecuta el script.
 
