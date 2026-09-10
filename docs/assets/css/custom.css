@@ -484,3 +484,42 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
     min-width: 60px;
   }
 }
+
+/* =========================================================
+   NAVEGACIÓN DEL PROGRAMA
+   ========================================================= */
+
+.program-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 58px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.program-navigation a {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  color: var(--accent) !important;
+  text-decoration: none !important;
+  font-weight: 700;
+}
+
+.program-navigation a:hover {
+  background: var(--soft);
+  border-color: #b9cdbf;
+}
+
+@media (max-width: 520px) {
+  .program-navigation {
+    flex-direction: column;
+  }
+
+  .program-navigation a {
+    text-align: center;
+  }
+}
