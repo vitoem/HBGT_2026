@@ -523,3 +523,20 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
   }
 }
 
+.program-page table:nth-of-type(2) td:first-child a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  padding: 0.25rem 0.45rem;
+  border-radius: 6px;
+  background: var(--soft);
+  color: var(--accent) !important;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.program-page table:nth-of-type(2) td:first-child a:hover {
+  background: var(--accent);
+  color: white !important;
+}
