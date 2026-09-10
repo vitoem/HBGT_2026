@@ -49,7 +49,7 @@ Un valor de **Phred Score ($Q$)** se interpreta bajo el estándar industrial de 
 
 ---
 
-## 💻 Guía Práctica 01: Preprocesamiento de Secuencias
+## <span id="practica-01"> 💻 Guía Práctica 01: Preprocesamiento de Secuencias <\span>
 
 Esta guía contiene los cuatro ejercicios de la **Práctica 01**, diseñados para ser ejecutados en el clúster de HPC de manera interactiva o mediante tareas en lote (*jobs*).
 
