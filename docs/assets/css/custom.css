@@ -344,7 +344,6 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
   padding-bottom: 70px;
 }
 
-/* Mantener el estilo de los títulos de las jornadas */
 .program-page h1 {
   max-width: 1000px;
 }
@@ -353,55 +352,123 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
   max-width: 1000px;
 }
 
+
 /* ---------------------------------------------------------
-   TABLA PRINCIPAL
+   TABLAS DEL PROGRAMA
    --------------------------------------------------------- */
 
-.program-page table:first-of-type {
+/*
+   La página tiene tres tablas:
+   1. Información general       → 2 columnas
+   2. Programa detallado       → 6 columnas
+   3. Resumen de prácticas     → 4 columnas
+
+   Por eso usamos nth-of-type(2) y nth-of-type(3).
+*/
+
+
+/* =========================================================
+   1. INFORMACIÓN GENERAL
+   ========================================================= */
+
+.program-page table:nth-of-type(1) {
+  width: 100%;
+}
+
+.program-page table:nth-of-type(1) th:first-child,
+.program-page table:nth-of-type(1) td:first-child {
+  width: 18%;
+}
+
+.program-page table:nth-of-type(1) th:last-child,
+.program-page table:nth-of-type(1) td:last-child {
+  width: 82%;
+}
+
+
+/* =========================================================
+   2. PROGRAMA DETALLADO
+   ========================================================= */
+
+.program-page table:nth-of-type(2) {
   width: 100%;
   table-layout: fixed;
 }
 
 /* Día */
-.program-page table:first-of-type th:nth-child(1),
-.program-page table:first-of-type td:nth-child(1) {
+.program-page table:nth-of-type(2) th:nth-child(1),
+.program-page table:nth-of-type(2) td:nth-child(1) {
   width: 5%;
   text-align: center;
 }
 
 /* Fecha */
-.program-page table:first-of-type th:nth-child(2),
-.program-page table:first-of-type td:nth-child(2) {
-  width: 15%;
+.program-page table:nth-of-type(2) th:nth-child(2),
+.program-page table:nth-of-type(2) td:nth-child(2) {
+  width: 10%;
 }
 
 /* Tema */
-.program-page table:first-of-type th:nth-child(3),
-.program-page table:first-of-type td:nth-child(3) {
-  width: 20%;
+.program-page table:nth-of-type(2) th:nth-child(3),
+.program-page table:nth-of-type(2) td:nth-child(3) {
+  width: 19%;
 }
 
 /* Contenidos */
-.program-page table:first-of-type th:nth-child(4),
-.program-page table:first-of-type td:nth-child(4) {
-  width: 30%;
+.program-page table:nth-of-type(2) th:nth-child(4),
+.program-page table:nth-of-type(2) td:nth-child(4) {
+  width: 31%;
 }
 
 /* Prácticas */
-.program-page table:first-of-type th:nth-child(5),
-.program-page table:first-of-type td:nth-child(5) {
-  width: 20%;
+.program-page table:nth-of-type(2) th:nth-child(5),
+.program-page table:nth-of-type(2) td:nth-child(5) {
+  width: 25%;
 }
 
-/* Responsable */
-.program-page table:first-of-type th:nth-child(6),
-.program-page table:first-of-type td:nth-child(6) {
+/* Facilitador */
+.program-page table:nth-of-type(2) th:nth-child(6),
+.program-page table:nth-of-type(2) td:nth-child(6) {
   width: 10%;
 }
 
 
+/* =========================================================
+   3. RESUMEN DE PRÁCTICAS
+   ========================================================= */
+
+.program-page table:nth-of-type(3) {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Práctica */
+.program-page table:nth-of-type(3) th:nth-child(1),
+.program-page table:nth-of-type(3) td:nth-child(1) {
+  width: 10%;
+}
+
+/* Día */
+.program-page table:nth-of-type(3) th:nth-child(2),
+.program-page table:nth-of-type(3) td:nth-child(2) {
+  width: 10%;
+}
+
+/* Título */
+.program-page table:nth-of-type(3) th:nth-child(3),
+.program-page table:nth-of-type(3) td:nth-child(3) {
+  width: 35%;
+}
+
+/* Herramientas */
+.program-page table:nth-of-type(3) th:nth-child(4),
+.program-page table:nth-of-type(3) td:nth-child(4) {
+  width: 45%;
+}
+
+
 /* ---------------------------------------------------------
-   TEXTO DENTRO DE LAS CELDAS
+   CELDAS
    --------------------------------------------------------- */
 
 .program-page th,
@@ -412,41 +479,11 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 }
 
 
-/* ---------------------------------------------------------
-   TABLA DE RESUMEN DE PRÁCTICAS
-   --------------------------------------------------------- */
+/* Las listas dentro de las celdas no deben generar
+   márgenes verticales innecesarios */
 
-.program-page table:nth-of-type(2) {
-  width: 100%;
-  table-layout: fixed;
-}
-
-.program-page table:nth-of-type(2) th:nth-child(1),
-.program-page table:nth-of-type(2) td:nth-child(1) {
-  width: 10%;
-}
-
-.program-page table:nth-of-type(2) th:nth-child(2),
-.program-page table:nth-of-type(2) td:nth-child(2) {
-  width: 15%;
-}
-
-.program-page table:nth-of-type(2) th:nth-child(3),
-.program-page table:nth-of-type(2) td:nth-child(3) {
-  width: 40%;
-}
-
-.program-page table:nth-of-type(2) th:nth-child(4),
-.program-page table:nth-of-type(2) td:nth-child(4) {
-  width: 35%;
-}
-
-
-/* ---------------------------------------------------------
-   LISTAS DENTRO DE LAS CELDAS
-   --------------------------------------------------------- */
-
-.program-page td ul {
+.program-page td ul,
+.program-page td ol {
   max-width: none;
   margin-top: 0;
   margin-bottom: 0;
@@ -454,8 +491,9 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 }
 
 .program-page td li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
+
 
 /* ---------------------------------------------------------
    RESPONSIVE
@@ -476,12 +514,12 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 
   .program-page table th,
   .program-page table td {
-    min-width: 140px;
+    min-width: 120px;
   }
 
-  .program-page table th:first-child,
-  .program-page table td:first-child {
-    min-width: 60px;
+  .program-page table:nth-of-type(2) th:first-child,
+  .program-page table:nth-of-type(2) td:first-child {
+    min-width: 50px;
   }
 }
 
