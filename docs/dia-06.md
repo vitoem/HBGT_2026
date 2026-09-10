@@ -123,7 +123,7 @@ Después de haber predicho los modelos génicos "codificantes" del genoma (Prác
 
 ---
 
-## Ejercicio 1 — Práctica06: Identificación de lncRNAs con Evolinc-I
+## <span id="practica-06"> Práctica06: Identificación de lncRNAs con Evolinc-I </span>
 
 En este ejercicio se identificarán transcritos correspondientes a RNAs largos no codificantes (lncRNAs) a partir de un ensamblado de transcriptoma y la anotación del genoma, utilizando el pipeline **Evolinc-I**. Posteriormente se explorará la relación espacial de estos lncRNAs con los genes vecinos en el genoma.
 
@@ -255,7 +255,7 @@ bedtools closest -a genes.bed -b ${LNCRNA} -D b > lncRNA_nearby_genes.txt
 
 ---
 
-## Ejercicio 2 — Práctica07: Otros ncRNAs (Rfam) y Elementos Transponibles
+## <span id="practica-07"> Práctica07: Otros ncRNAs (Rfam) y Elementos Transponibles </span>
 
 Complementando la búsqueda de lncRNAs del ejercicio anterior, esta práctica aborda dos tipos adicionales de elementos genómicos no codificantes: primero, otros RNAs no codificantes de menor tamaño (rRNAs, tRNAs, snRNAs, precursores de miRNAs, etc.) mediante comparación contra la base de datos Rfam; y segundo, los elementos transponibles (TEs), cuya identificación y enmascaramiento es relevante tanto por sí misma como para mejorar predicciones génicas posteriores.
 
