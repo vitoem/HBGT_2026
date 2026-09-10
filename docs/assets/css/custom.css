@@ -332,7 +332,7 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 }
 
 /* =========================================================
-   PÁGINA DEL PROGRAMA
+   PROGRAMA DEL CURSO
    ========================================================= */
 
 .program-page .wrapper {
@@ -345,30 +345,28 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 }
 
 .program-page h1 {
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.05;
-  letter-spacing: -.04em;
-  margin: 8px 0 18px;
-  max-width: 950px;
+  max-width: 1000px;
 }
 
 .program-page h2 {
-  font-size: clamp(1.55rem, 3vw, 2.25rem);
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
+  max-width: 1000px;
 }
 
+/* Texto introductorio */
 .program-page p,
 .program-page ul,
 .program-page ol {
   max-width: 1000px;
 }
 
+/* ---------------------------------------------------------
+   Tabla principal del programa
+   --------------------------------------------------------- */
+
 .program-page table {
   width: 100%;
   table-layout: fixed;
-  font-size: .88rem;
+  font-size: 0.88rem;
 }
 
 .program-page th,
@@ -378,36 +376,47 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
   word-break: normal;
 }
 
-.program-page th:nth-child(1),
-.program-page td:nth-child(1) {
+/* Día */
+.program-page table:first-of-type th:nth-child(1),
+.program-page table:first-of-type td:nth-child(1) {
   width: 5%;
   text-align: center;
 }
 
-.program-page th:nth-child(2),
-.program-page td:nth-child(2) {
+/* Fecha */
+.program-page table:first-of-type th:nth-child(2),
+.program-page table:first-of-type td:nth-child(2) {
   width: 10%;
 }
 
-.program-page th:nth-child(3),
-.program-page td:nth-child(3) {
+/* Tema */
+.program-page table:first-of-type th:nth-child(3),
+.program-page table:first-of-type td:nth-child(3) {
   width: 17%;
 }
 
-.program-page th:nth-child(4),
-.program-page td:nth-child(4) {
+/* Contenidos */
+.program-page table:first-of-type th:nth-child(4),
+.program-page table:first-of-type td:nth-child(4) {
   width: 32%;
 }
 
-.program-page th:nth-child(5),
-.program-page td:nth-child(5) {
+/* Prácticas */
+.program-page table:first-of-type th:nth-child(5),
+.program-page table:first-of-type td:nth-child(5) {
   width: 26%;
 }
 
-.program-page th:nth-child(6),
-.program-page td:nth-child(6) {
+/* Responsable */
+.program-page table:first-of-type th:nth-child(6),
+.program-page table:first-of-type td:nth-child(6) {
   width: 10%;
 }
+
+
+/* ---------------------------------------------------------
+   Tabla resumen de prácticas
+   --------------------------------------------------------- */
 
 .program-page table:nth-of-type(2) th:nth-child(1),
 .program-page table:nth-of-type(2) td:nth-child(1) {
@@ -429,15 +438,47 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
   width: 45%;
 }
 
-@media(max-width:800px) {
-  .program-page table {
-    display:block;
-    overflow-x:auto;
-    white-space:normal;
-  }
+
+/* ---------------------------------------------------------
+   Listas dentro de las celdas
+   --------------------------------------------------------- */
+
+.program-page td ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 1.2rem;
+  max-width: none;
+}
+
+.program-page td li {
+  margin-bottom: 0.25rem;
+}
+
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
 
   .program-page .wrapper {
-    padding-left:18px;
-    padding-right:18px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .program-page table {
+    display: block;
+    overflow-x: auto;
+    white-space: normal;
+  }
+
+  .program-page table th,
+  .program-page table td {
+    min-width: 140px;
+  }
+
+  .program-page table th:first-child,
+  .program-page table td:first-child {
+    min-width: 60px;
   }
 }
