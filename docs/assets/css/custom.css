@@ -428,3 +428,16 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 .program-page table:nth-of-type(2) td:nth-child(4) {
   width: 45%;
 }
+
+@media(max-width:800px) {
+  .program-page table {
+    display:block;
+    overflow-x:auto;
+    white-space:normal;
+  }
+
+  .program-page .wrapper {
+    padding-left:18px;
+    padding-right:18px;
+  }
+}
