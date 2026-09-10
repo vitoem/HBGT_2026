@@ -97,7 +97,7 @@ Las estrategias híbridas combinan lo mejor de ambos mundos:
 
 ---
 
-# Práctica 08 — Ensamblado de novo de transcriptomas (RNAseq)
+# <span id="practica-08"> Práctica 08 — Ensamblado de novo de transcriptomas (RNAseq) </span>
 
 Esta práctica trabaja con un experimento de RNAseq compuesto por tres condiciones (Control, TreatmentX y TreatmentY), cada una secuenciada por triplicado (réplicas biológicas 01–03), en lecturas pareadas (R1/R2). Como no se cuenta con un genoma de referencia para esta especie, el flujo de trabajo consiste en: (1) preparar y concatenar las lecturas de alta calidad de todas las condiciones y réplicas en un único par de archivos R1/R2; (2) generar un ensamblado de novo del transcriptoma con **MIRA**; y (3) generar un segundo ensamblado de novo, con el mismo conjunto de datos, utilizando **Trinity**, para posteriormente poder comparar ambos resultados (unigenes) entre sí.
 
