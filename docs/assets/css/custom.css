@@ -330,3 +330,43 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
   border-color: rgba(255, 255, 255, 0.4);
   color: #ffffff;
 }
+
+/* =========================================================
+   PROGRAMA DEL CURSO
+   ========================================================= */
+
+.day-page .program-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.day-page .program-table th:nth-child(1),
+.day-page .program-table td:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+
+.day-page .program-table th:nth-child(2),
+.day-page .program-table td:nth-child(2) {
+  width: 10%;
+}
+
+.day-page .program-table th:nth-child(3),
+.day-page .program-table td:nth-child(3) {
+  width: 17%;
+}
+
+.day-page .program-table th:nth-child(4),
+.day-page .program-table td:nth-child(4) {
+  width: 32%;
+}
+
+.day-page .program-table th:nth-child(5),
+.day-page .program-table td:nth-child(5) {
+  width: 26%;
+}
+
+.day-page .program-table th:nth-child(6),
+.day-page .program-table td:nth-child(6) {
+  width: 10%;
+}
