@@ -344,6 +344,7 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
   padding-bottom: 70px;
 }
 
+/* Mantener el estilo de los títulos de las jornadas */
 .program-page h1 {
   max-width: 1000px;
 }
@@ -352,28 +353,13 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
   max-width: 1000px;
 }
 
-/* Texto introductorio */
-.program-page p,
-.program-page ul,
-.program-page ol {
-  max-width: 1000px;
-}
-
 /* ---------------------------------------------------------
-   Tabla principal del programa
+   TABLA PRINCIPAL
    --------------------------------------------------------- */
 
-.program-page table {
+.program-page table:first-of-type {
   width: 100%;
   table-layout: fixed;
-  font-size: 0.88rem;
-}
-
-.program-page th,
-.program-page td {
-  vertical-align: top;
-  overflow-wrap: break-word;
-  word-break: normal;
 }
 
 /* Día */
@@ -415,8 +401,25 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 
 
 /* ---------------------------------------------------------
-   Tabla resumen de prácticas
+   TEXTO DENTRO DE LAS CELDAS
    --------------------------------------------------------- */
+
+.program-page th,
+.program-page td {
+  vertical-align: top;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+
+/* ---------------------------------------------------------
+   TABLA DE RESUMEN DE PRÁCTICAS
+   --------------------------------------------------------- */
+
+.program-page table:nth-of-type(2) {
+  width: 100%;
+  table-layout: fixed;
+}
 
 .program-page table:nth-of-type(2) th:nth-child(1),
 .program-page table:nth-of-type(2) td:nth-child(1) {
@@ -440,14 +443,14 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 
 
 /* ---------------------------------------------------------
-   Listas dentro de las celdas
+   LISTAS DENTRO DE LAS CELDAS
    --------------------------------------------------------- */
 
 .program-page td ul {
+  max-width: none;
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 1.2rem;
-  max-width: none;
 }
 
 .program-page td li {
@@ -456,7 +459,7 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 
 
 /* ---------------------------------------------------------
-   Responsive
+   RESPONSIVE
    --------------------------------------------------------- */
 
 @media (max-width: 800px) {
