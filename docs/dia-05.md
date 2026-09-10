@@ -129,7 +129,7 @@ Estas tres prácticas continúan el flujo de trabajo iniciado en la Práctica02 
 
 ---
 
-## Ejercicio 1 — Práctica03: Métricas de ensamblado y evaluación con BUSCO
+## <span id="practica-03"> Práctica 03: Métricas de ensamblado y evaluación con BUSCO </span>
 
 Antes de anotar o utilizar un genoma ensamblado, es indispensable evaluar qué tan completo y contiguo resultó el ensamblado. Para ello se utilizarán dos aproximaciones complementarias: el cálculo de métricas de contigüidad (N50, número de contigs, tamaño total, etc.) y la evaluación de completitud génica con BUSCO.
 
@@ -197,7 +197,7 @@ Compare los resultados de BUSCO entre ambos genomas (Acidobacteria_bacterium y B
 
 ---
 
-## Ejercicio 2 — Práctica04: Anotación de genomas procariontes con herramientas en línea
+## <span id="practica-04"> Práctica04: Anotación de genomas procariontes con herramientas en línea </span>
 
 Una vez evaluada la calidad del ensamblado, el siguiente paso es anotarlo, es decir, identificar genes y otros elementos funcionales sobre la secuencia. Para genomas procariontes (principalmente bacterianos) es común apoyarse en servidores en línea que agilizan considerablemente este proceso frente a instalar y configurar un pipeline completo de forma local.
 
@@ -216,7 +216,7 @@ Una vez transferido el archivo, cárguelo en ambas plataformas (DFAST y Prokka/P
 
 ---
 
-## Ejercicio 3 — Práctica05: Predicción de modelos génicos con Augustus
+## <span id="practica-05"> Práctica05: Predicción de modelos génicos con Augustus </span>
 
 Con el genoma ya evaluado y anotado a nivel general, esta práctica se enfoca en la predicción de modelos génicos utilizando **Augustus**, primero de forma *ab initio* (sin evidencia externa) y después refinando la predicción con evidencia transcripcional (un transcriptoma ensamblado).
 
