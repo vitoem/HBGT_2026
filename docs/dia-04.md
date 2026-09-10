@@ -61,7 +61,7 @@ Casi todos los ensambladores bioinformáticos incorporan algoritmos de postproce
 
 ---
 
-# <span id="practica-01"> Práctica 02 — Ensamblado de Genomas (Newbler y MIRA) <\span>
+# <span id="practica-01"> Práctica 02 — Ensamblado de Genomas (Newbler y MIRA) </span>
 
 ---
 
