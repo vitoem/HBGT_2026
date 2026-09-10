@@ -108,7 +108,7 @@ El proceso de agrupación de transcritos similares genera conjuntos de **Unigene
 
 ---
 
-# Práctica 09
+## <span id="practica-09"> Práctica 09: Análisis de calidad de un transcriptoma </span>
 
 Este documento reúne el instructivo de la práctica junto con los tres scripts de SLURM utilizados durante el flujo de trabajo (`SeqClean.slurm`, `getORF.slurm` y `Translate.slurm`), de modo que se pueda seguir toda la secuencia de ejercicios sin tener que saltar entre archivos.
 
@@ -273,7 +273,7 @@ Estime las métricas para los archivos recientemente generados y compare las sal
 
 ---
 
-# Práctica 10 
+## <span id="practica-10"> Práctica 10: Refinamiento y anotación de un transcriptoma </span>
 
 Este documento reúne el instructivo de la práctica junto con los scripts de SLURM involucrados en el flujo de anotación funcional de los unigenes ensamblados con Trinity: `FormatDB.slurm` (construcción de la base de datos de referencia), `AlignWise.slurm` (identificación de CDS/ORF codificante vía alineamiento contra proteínas de referencia) y un paso final de `BLASTp` contra esa misma base de datos, para contrastar los productos proteicos obtenidos.
 
