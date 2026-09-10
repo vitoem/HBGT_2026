@@ -332,41 +332,79 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 }
 
 /* =========================================================
-   PROGRAMA DEL CURSO
+   PÁGINA DEL PROGRAMA
    ========================================================= */
 
-.day-page .program-table {
-  table-layout: fixed;
-  width: 100%;
+.program-page .wrapper {
+  max-width: 1240px;
 }
 
-.day-page .program-table th:nth-child(1),
-.day-page .program-table td:nth-child(1) {
+.program-page main.wrapper {
+  padding-top: 54px;
+  padding-bottom: 70px;
+}
+
+.program-page h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -.04em;
+  margin: 8px 0 18px;
+  max-width: 950px;
+}
+
+.program-page h2 {
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.program-page p,
+.program-page ul,
+.program-page ol {
+  max-width: 1000px;
+}
+
+.program-page table {
+  width: 100%;
+  table-layout: fixed;
+  font-size: .88rem;
+}
+
+.program-page th,
+.program-page td {
+  vertical-align: top;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.program-page th:nth-child(1),
+.program-page td:nth-child(1) {
   width: 5%;
   text-align: center;
 }
 
-.day-page .program-table th:nth-child(2),
-.day-page .program-table td:nth-child(2) {
+.program-page th:nth-child(2),
+.program-page td:nth-child(2) {
   width: 10%;
 }
 
-.day-page .program-table th:nth-child(3),
-.day-page .program-table td:nth-child(3) {
+.program-page th:nth-child(3),
+.program-page td:nth-child(3) {
   width: 17%;
 }
 
-.day-page .program-table th:nth-child(4),
-.day-page .program-table td:nth-child(4) {
+.program-page th:nth-child(4),
+.program-page td:nth-child(4) {
   width: 32%;
 }
 
-.day-page .program-table th:nth-child(5),
-.day-page .program-table td:nth-child(5) {
+.program-page th:nth-child(5),
+.program-page td:nth-child(5) {
   width: 26%;
 }
 
-.day-page .program-table th:nth-child(6),
-.day-page .program-table td:nth-child(6) {
+.program-page th:nth-child(6),
+.program-page td:nth-child(6) {
   width: 10%;
 }
