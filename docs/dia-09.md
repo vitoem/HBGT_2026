@@ -129,7 +129,7 @@ Una vez completado el contraste estadístico, los resultados se sintetizan media
 
 ---
 
-# Práctica 11 
+## <span id="practica-11"> Práctica 11: Análisis de Expresión Diferencial </span>
 
 Este documento reúne el instructivo de la práctica junto con los cinco scripts de SLURM utilizados en el análisis de expresión diferencial (RSEM + Trinity/DESeq2), de modo que se pueda seguir toda la secuencia de pasos sin tener que saltar entre archivos.
 
