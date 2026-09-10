@@ -456,32 +456,3 @@ h2 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; letter-spacing:-.035em;
 .program-page td li {
   margin-bottom: 0.25rem;
 }
-
-
-/* ---------------------------------------------------------
-   RESPONSIVE
-   --------------------------------------------------------- */
-
-@media (max-width: 800px) {
-
-  .program-page .wrapper {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  .program-page table {
-    display: block;
-    overflow-x: auto;
-    white-space: normal;
-  }
-
-  .program-page table th,
-  .program-page table td {
-    min-width: 140px;
-  }
-
-  .program-page table th:first-child,
-  .program-page table td:first-child {
-    min-width: 60px;
-  }
-}
