@@ -167,3 +167,6 @@ Para indicarle al sistema la ubicación de un elemento en el disco, podemos empl
     *   *Ejemplo:* `data/proteina.txt` o `../backup/archivo.zip`
 
 ---
+
+[**Evaluación del Día 01**](https://forms.cloud.microsoft/r/LBk9u57NTA)
+
