@@ -59,3 +59,5 @@ En Linux, la eliminación de archivos mediante la terminal es **permanente e irr
 *   ⚠️ **Práctica de Seguridad Obligatoria:** Utiliza siempre la opción interactiva `rm -i` o `rm -ri`. El sistema te preguntará y requerirá confirmación explícita (`y`/`n`) antes de borrar cada elemento, previniendo la pérdida accidental de datos crudos valiosos.
 
 ---
+
+[**Evaluación del Día 02**](https://forms.cloud.microsoft/r/FCQV46NS9r)
