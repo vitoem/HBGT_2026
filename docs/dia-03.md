@@ -104,6 +104,7 @@ fastq_quality_converter -h
 # Ejecutar conversión de calidad interactiva asignando recursos
 srun --mem 16000 -n 1 -p q2 fastq_quality_converter -n -Q33 -i IlluminaReads_NewStyle.fastq -o IlluminaReads_Phred.fastq
 ```
+![Escala de calidad Phred](images/qualityscore.png)
 
 #### 5. Modificación de Identificadores por Terminal
 A veces requerimos cambiar el formato de los encabezados de las secuencias para que sean compatibles con software bioinformático antiguo. Usaremos un procesador de datos de texto plano (`awk`) para realizar esta reestructuración:
