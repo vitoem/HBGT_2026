@@ -197,6 +197,21 @@ module load trimmomatic/0.38/gcc/8.3.1-jwk4
 # Conservamos únicamente lecturas resultantes con un tamaño mínimo de 36 nucleótidos (MINLEN:36).
 srun --mem 8G -n2 -p q1 trimmomatic SE -threads 2 -phred33 IlluminaReads_NewStyle.fastq IlluminaReads_Filtered03.fastq LEADING:15 TRAILING:15 SLIDINGWINDOW:4:20 MINLEN:36
 ```
+>**The current trimming steps are:**
+- ILLUMINACLIP: Cut adapter and other illumina-specific sequences from the read.
+- LEADING: Cut bases off the start of a read, if below a threshold quality.
+- TRAILING: Cut bases off the end of a read, if below a threshold quality.
+- HEADCROP: Cut the specified number of bases from the start of the read.
+- TAILCROP: Cut the specified number of bases from the end of the read.
+- CROP: Cut the read to a specified length.
+- SLIDINGWINDOW: Perform a sliding window trimming, cutting once the average quality within the window falls below a threshold.
+- MAXINFO: Trim the read to maximize the useful information, balancing for read length and quality.
+- MINLEN: Drop the read if it is below a specified length.
+- MAXLEN: Drop the read if it is longer than a specified length.
+- AVGQUAL: Drop the read if its average quality is below a specified threshold.
+ -BASECOUNT: Drop the read if the count of a specified base (or bases) is outside a given minimum and maximum.
+- TOPHRED33: Convert quality scores to Phred-33.
+- TOPHRED64: Convert quality scores to Phred-64.
 
 #### 4. Procesamiento de Lecturas Pareadas (Paired-End_Reads)
 Al filtrar archivos de extremos pareados (Forward `R1` y Reverse `R2`), debemos garantizar que los pares de secuencias se mantengan alineados. Si una secuencia correspondiente a un par es eliminada, el par huérfano remanente debe ser segregado o descartado para evitar colapsos en las herramientas de ensamblado o mapeo río abajo:
