@@ -269,6 +269,15 @@ install.packages("BiocManager")
 
 BiocManager::version()
 
+#instalamos dependencias adicionales
+BiocManager::install(c("impute", "preprocessCore"))
+BiocManager::install("DESeq2")
+BiocManager::install("genefilter")
+install.packages(c("tidyverse", "magrittr"))
+
+#Procedemos a instalar WGCNA
+install.packages("WGCNA", dependencies = TRUE)
+
 # Cargamos las librerías que utilizaremos durante el análisis
 
 library(impute)
@@ -290,7 +299,7 @@ Una vez cargadas las librerías, podemos consultar el manual de WGCNA directamen
 ??WGCNA
 ```
 
-> **Nota:** Si alguno de los paquetes no está instalado, será necesario instalarlo antes de continuar. En este tutorial asumiremos que el entorno de trabajo ya se encuentra preparado.
+> **Nota:** Si alguno de los paquetes no está instalado, será necesario instalarlo antes de continuar. En este tutorial asumiremos que el entorno de trabajo ya se encuentra listo
 
 **Paso 2.** Preparación del directorio de trabajo
 
@@ -308,7 +317,7 @@ setwd("/home/mpale/WGNCA_Tutorial") ###En este caso ese es mi directorio de trab
 getwd()
 ```
 
-**Paso 3.**. Carga de los datos
+**Paso 3.** Carga de los datos
 
 Una vez establecido el directorio de trabajo, vamos a cargar la matriz de conteos que utilizaremos para realizar el análisis.
 
@@ -485,7 +494,7 @@ dds <- DESeqDataSetFromMatrix(
 dds <- DESeq(dds)
 ```
 
-En este caso no estamos utilizando `DESeq2` para realizar un análisis diferencial. Lo utilizamos como parte de la preparación de los datos tomando en cuanta la varianza d los datos
+En este caso no estamos utilizando `DESeq2` para realizar un análisis diferencial. Lo utilizamos como parte de la preparación de los datos tomando en cuanta la varianza de los datos
 
 **Paso 7.** Transformación y selección de genes variables
 
@@ -543,7 +552,6 @@ Una vez que hemos realizado la transformación y seleccionado los genes más var
 Para esto transformaremos la matriz a formato largo y generaremos un gráfico de violín. A diferencia del gráfico del paso anterior, en este caso estamos utilizando los datos después de la transformación VST y del filtrado por varianza.
 
 ```r
-id="n8k2fa"
 # Convertimos la matriz normalizada a un data frame
 
 expr_normalized_df <- data.frame(expr_normalized) %>%
@@ -560,7 +568,6 @@ expr_normalized_df[1:10, ]
 Ahora podemos visualizar la distribución de la expresión normalizada en cada muestra.
 
 ```r
-id="q7m4tx"
 # Generamos un gráfico de violín con los datos normalizados
 
 expr_normalized_df %>%
@@ -591,7 +598,6 @@ WGCNA trabaja con una matriz en la que **las filas corresponden a las muestras y
 Por lo tanto, vamos a transponer la matriz.
 
 ```r
-id="2q7vka"
 # Transponemos la matriz para que las filas correspondan
 # a las muestras y las columnas a los genes
 
@@ -611,7 +617,6 @@ Antes de comenzar la construcción de la red, también vamos a realizar un contr
 La función `goodSamplesGenes()` permite identificar genes o muestras que contienen demasiados valores faltantes o que pueden interferir con el análisis de la red.
 
 ```r
-id="8p4m1c"
 # Revisamos la calidad de los genes y las muestras
 
 gsg = goodSamplesGenes(
@@ -629,7 +634,6 @@ Si `gsg$allOK` devuelve `TRUE`, podemos continuar porque no se identificaron pro
 En caso de que el resultado sea `FALSE`, podemos conservar únicamente los genes y muestras considerados adecuados:
 
 ```r
-id="t6zj4p"
 # Si existen genes o muestras que no cumplen los criterios,
 # conservamos únicamente los elementos considerados adecuados
 
@@ -779,7 +783,6 @@ Utilizaremos `blockwiseModules()`, que permite construir la red y realizar la id
 En este caso construiremos una **red firmada** (`signed`), en la que las correlaciones positivas entre genes tienen mayor contribución a la conectividad de la red.
 
 ```r
-id="p7n5cx"
 # Guardamos temporalmente la función cor original
 
 temp_cor <- cor
@@ -828,7 +831,6 @@ Como nuestra matriz contiene más genes que el valor definido en `maxBlockSize`,
 Finalmente, vamos a revisar cuántos bloques fueron generados:
 
 ```r
-id="7x8wqk"
 # Revisamos el número de bloques generados
 
 length(netwk$dendrograms)
@@ -837,7 +839,6 @@ length(netwk$dendrograms)
 Y podemos consultar cuántos genes fueron asignados a cada bloque:
 
 ```r
-id="n6k3tp"
 # Revisamos el número de genes presentes en cada bloque
 
 sapply(
@@ -1097,7 +1098,6 @@ Para esto calcularemos la **membresía del módulo** (*Module Membership*, MM), 
 Un valor alto de MM indica que el patrón de expresión de un gen se encuentra estrechamente relacionado con el comportamiento general de su módulo.
 
 ```r
-id="8qv3na"
 # Calculamos la correlación entre cada gen y los módulos eigengenes
 
 geneModuleMembership = as.data.frame(
@@ -1125,7 +1125,6 @@ geneModuleMembership[1:5, 1:5]
 Ahora podemos agregar los nombres de los módulos a partir de la información que obtuvimos anteriormente.
 
 ```r
-id="x9y7pw"
 # Revisamos los nombres de las columnas
 
 names(geneModuleMembership)
@@ -1134,7 +1133,6 @@ names(geneModuleMembership)
 Para facilitar el análisis, vamos a utilizar la información de `module_df` para identificar qué módulo corresponde a cada gen.
 
 ```r
-id="e8n4jc"
 # Revisamos la asignación de los genes a los módulos
 
 module_df[1:5, ]
@@ -1302,7 +1300,6 @@ Para este análisis utilizaremos la **TOM (Topological Overlap Matrix)**, que pe
 Primero extraemos de la matriz de expresión los genes pertenecientes a los módulos que seleccionamos anteriormente.
 
 ```r
-id="4f8q2m"
 # Extraemos los genes pertenecientes a los módulos de interés
 
 expr_of_interest = expr_normalized[
@@ -1317,7 +1314,6 @@ expr_of_interest[1:5, 1:5]
 Ahora calculamos la matriz de similitud topológica para estos genes.
 
 ```r
-id="z7c1pa"
 # Calculamos la matriz de similitud topológica
 
 TOM = TOMsimilarityFromExpr(
@@ -1335,7 +1331,6 @@ colnames(TOM) = row.names(expr_of_interest)
 La matriz `TOM` contiene la similitud topológica entre cada par de genes. Para facilitar su utilización en otros programas, vamos a convertirla en una lista de interacciones entre genes.
 
 ```r
-id="2p9m6k"
 # Convertimos la matriz TOM en una tabla de interacciones
 
 edge_list = data.frame(TOM) %>%
@@ -1366,7 +1361,6 @@ head(edge_list)
 Finalmente, guardamos la lista de interacciones en un archivo delimitado por tabulaciones.
 
 ```r
-id="5j3r8c"
 # Exportamos la red para utilizarla posteriormente
 # en programas como Cytoscape o VisANT
 
@@ -1399,11 +1393,11 @@ Durante el análisis realizamos los siguientes procedimientos:
 * Identificamos genes hub.
 * Construimos y exportamos una red de interacciones basada en la similitud topológica.
 
-El objetivo de este análisis no es únicamente obtener grupos de genes, sino utilizar los patrones de co-expresión para explorar posibles relaciones entre los genes y las características biológicas de interés.
 
-Los módulos identificados pueden utilizarse como punto de partida para análisis posteriores, como enriquecimiento funcional, identificación de genes candidatos, análisis de redes y visualización en herramientas como Cytoscape.
+> **Nota:** Los módulos identificados pueden utilizarse como punto de partida para análisis posteriores, como: enriquecimiento funcional, identificación de genes candidatos, análisis de redes y visualización en herramientas como Cytoscape.
 
-Finalmente, es importante considerar que las relaciones obtenidas mediante WGCNA representan **asociaciones de co-expresión**. Por sí mismas, estas asociaciones no demuestran relaciones causales ni funciones biológicas. Su interpretación debe complementarse con información experimental, funcional y biológica.
+---
+
 
 ## <span id="practica-07"> Práctica07: Otros ncRNAs (Rfam) y Elementos Transponibles </span>
 
