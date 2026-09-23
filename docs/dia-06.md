@@ -542,7 +542,8 @@ Una vez que hemos realizado la transformación y seleccionado los genes más var
 
 Para esto transformaremos la matriz a formato largo y generaremos un gráfico de violín. A diferencia del gráfico del paso anterior, en este caso estamos utilizando los datos después de la transformación VST y del filtrado por varianza.
 
-```r id="n8k2fa"
+```r
+id="n8k2fa"
 # Convertimos la matriz normalizada a un data frame
 
 expr_normalized_df <- data.frame(expr_normalized) %>%
@@ -558,7 +559,8 @@ expr_normalized_df[1:10, ]
 
 Ahora podemos visualizar la distribución de la expresión normalizada en cada muestra.
 
-```r id="q7m4tx"
+```r
+id="q7m4tx"
 # Generamos un gráfico de violín con los datos normalizados
 
 expr_normalized_df %>%
@@ -588,7 +590,8 @@ WGCNA trabaja con una matriz en la que **las filas corresponden a las muestras y
 
 Por lo tanto, vamos a transponer la matriz.
 
-```r id="2q7vka"
+```r
+id="2q7vka"
 # Transponemos la matriz para que las filas correspondan
 # a las muestras y las columnas a los genes
 
@@ -607,7 +610,8 @@ Antes de comenzar la construcción de la red, también vamos a realizar un contr
 
 La función `goodSamplesGenes()` permite identificar genes o muestras que contienen demasiados valores faltantes o que pueden interferir con el análisis de la red.
 
-```r id="8p4m1c"
+```r
+id="8p4m1c"
 # Revisamos la calidad de los genes y las muestras
 
 gsg = goodSamplesGenes(
@@ -624,7 +628,8 @@ Si `gsg$allOK` devuelve `TRUE`, podemos continuar porque no se identificaron pro
 
 En caso de que el resultado sea `FALSE`, podemos conservar únicamente los genes y muestras considerados adecuados:
 
-```r id="t6zj4p"
+```r
+id="t6zj4p"
 # Si existen genes o muestras que no cumplen los criterios,
 # conservamos únicamente los elementos considerados adecuados
 
@@ -773,7 +778,8 @@ Utilizaremos `blockwiseModules()`, que permite construir la red y realizar la id
 
 En este caso construiremos una **red firmada** (`signed`), en la que las correlaciones positivas entre genes tienen mayor contribución a la conectividad de la red.
 
-```r id="p7n5cx"
+```r
+id="p7n5cx"
 # Guardamos temporalmente la función cor original
 
 temp_cor <- cor
@@ -821,7 +827,8 @@ Como nuestra matriz contiene más genes que el valor definido en `maxBlockSize`,
 
 Finalmente, vamos a revisar cuántos bloques fueron generados:
 
-```r id="7x8wqk"
+```r
+id="7x8wqk"
 # Revisamos el número de bloques generados
 
 length(netwk$dendrograms)
@@ -829,7 +836,8 @@ length(netwk$dendrograms)
 
 Y podemos consultar cuántos genes fueron asignados a cada bloque:
 
-```r id="n6k3tp"
+```r
+id="n6k3tp"
 # Revisamos el número de genes presentes en cada bloque
 
 sapply(
@@ -1088,7 +1096,8 @@ Para esto calcularemos la **membresía del módulo** (*Module Membership*, MM), 
 
 Un valor alto de MM indica que el patrón de expresión de un gen se encuentra estrechamente relacionado con el comportamiento general de su módulo.
 
-```r id="8qv3na"
+```r
+id="8qv3na"
 # Calculamos la correlación entre cada gen y los módulos eigengenes
 
 geneModuleMembership = as.data.frame(
@@ -1115,7 +1124,8 @@ geneModuleMembership[1:5, 1:5]
 
 Ahora podemos agregar los nombres de los módulos a partir de la información que obtuvimos anteriormente.
 
-```r id="x9y7pw"
+```r
+id="x9y7pw"
 # Revisamos los nombres de las columnas
 
 names(geneModuleMembership)
@@ -1123,7 +1133,8 @@ names(geneModuleMembership)
 
 Para facilitar el análisis, vamos a utilizar la información de `module_df` para identificar qué módulo corresponde a cada gen.
 
-```r id="e8n4jc"
+```r
+id="e8n4jc"
 # Revisamos la asignación de los genes a los módulos
 
 module_df[1:5, ]
@@ -1290,7 +1301,8 @@ Para este análisis utilizaremos la **TOM (Topological Overlap Matrix)**, que pe
 
 Primero extraemos de la matriz de expresión los genes pertenecientes a los módulos que seleccionamos anteriormente.
 
-```r id="4f8q2m"
+```r
+id="4f8q2m"
 # Extraemos los genes pertenecientes a los módulos de interés
 
 expr_of_interest = expr_normalized[
@@ -1304,7 +1316,8 @@ expr_of_interest[1:5, 1:5]
 
 Ahora calculamos la matriz de similitud topológica para estos genes.
 
-```r id="z7c1pa"
+```r
+id="z7c1pa"
 # Calculamos la matriz de similitud topológica
 
 TOM = TOMsimilarityFromExpr(
@@ -1321,7 +1334,8 @@ colnames(TOM) = row.names(expr_of_interest)
 
 La matriz `TOM` contiene la similitud topológica entre cada par de genes. Para facilitar su utilización en otros programas, vamos a convertirla en una lista de interacciones entre genes.
 
-```r id="2p9m6k"
+```r
+id="2p9m6k"
 # Convertimos la matriz TOM en una tabla de interacciones
 
 edge_list = data.frame(TOM) %>%
@@ -1351,7 +1365,8 @@ head(edge_list)
 
 Finalmente, guardamos la lista de interacciones en un archivo delimitado por tabulaciones.
 
-```r id="5j3r8c"
+```r
+id="5j3r8c"
 # Exportamos la red para utilizarla posteriormente
 # en programas como Cytoscape o VisANT
 
