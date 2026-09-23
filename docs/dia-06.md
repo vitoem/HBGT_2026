@@ -1404,6 +1404,7 @@ El objetivo de este análisis no es únicamente obtener grupos de genes, sino ut
 Los módulos identificados pueden utilizarse como punto de partida para análisis posteriores, como enriquecimiento funcional, identificación de genes candidatos, análisis de redes y visualización en herramientas como Cytoscape.
 
 Finalmente, es importante considerar que las relaciones obtenidas mediante WGCNA representan **asociaciones de co-expresión**. Por sí mismas, estas asociaciones no demuestran relaciones causales ni funciones biológicas. Su interpretación debe complementarse con información experimental, funcional y biológica.
+
 ---
 
 ## <span id="practica-07"> Práctica07: Otros ncRNAs (Rfam) y Elementos Transponibles </span>
