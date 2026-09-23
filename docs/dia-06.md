@@ -1405,8 +1405,6 @@ Los módulos identificados pueden utilizarse como punto de partida para análisi
 
 Finalmente, es importante considerar que las relaciones obtenidas mediante WGCNA representan **asociaciones de co-expresión**. Por sí mismas, estas asociaciones no demuestran relaciones causales ni funciones biológicas. Su interpretación debe complementarse con información experimental, funcional y biológica.
 
----
-
 ## <span id="practica-07"> Práctica07: Otros ncRNAs (Rfam) y Elementos Transponibles </span>
 
 Complementando la búsqueda de lncRNAs del ejercicio anterior, esta práctica aborda dos tipos adicionales de elementos genómicos no codificantes: primero, otros RNAs no codificantes de menor tamaño (rRNAs, tRNAs, snRNAs, precursores de miRNAs, etc.) mediante comparación contra la base de datos Rfam; y segundo, los elementos transponibles (TEs), cuya identificación y enmascaramiento es relevante tanto por sí misma como para mejorar predicciones génicas posteriores.
