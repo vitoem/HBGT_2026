@@ -313,3 +313,5 @@ augustus --species=tomato --hintsfile=TrainingSet_hints.E.gff --extrinsicCfgFile
 > | W | Información de cobertura de wiggle track (RNA-Seq) |
 
 ---
+
+[**Evaluación del Día 05**](https://forms.cloud.microsoft/r/YWPUz203re)
