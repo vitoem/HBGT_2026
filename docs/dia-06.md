@@ -1480,3 +1480,5 @@ RepeatMasker -q -x -gff -lib ../DeNovoTEs.fasta GenomeSequences.fasta
 Una vez enmascarado el genoma, realice la predicción de modelos génicos utilizando evidencia transcripcional (`TranscriptomeAssembly.fasta`), tal y como se hizo en la Práctica05 (Ejercicio02). Utilice tanto el genoma enmascarado como el genoma sin enmascarar. Una vez parseados sus resultados, transfiera los archivos necesarios a su máquina local y compare utilizando JBrowse.
 
 ---
+
+[**Evaluación del Día 06**](https://forms.cloud.microsoft/r/bXANVZxqE0)
