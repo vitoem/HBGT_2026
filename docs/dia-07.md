@@ -193,3 +193,5 @@ time Trinity --seqType fq --max_memory 200G --left ../2.MiraAssembly/HQ_AllReads
 Al finalizar ambos ensamblados (MIRA y Trinity), compare el número de unigenes/contigs generados por cada aproximación, así como sus métricas de contigüidad, para discutir las ventajas y desventajas de cada ensamblador frente a este conjunto de datos de RNAseq.
 
 ---
+
+[**Evaluación del Día 07**](https://forms.cloud.microsoft/r/965eYfzpva)
