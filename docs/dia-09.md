@@ -144,6 +144,7 @@ Este ejercicio consiste en realizar un análisis de expresión diferencial. Se u
 5. Se identifican los genes expresados diferencialmente entre pares de condiciones (`4.DifferentialExpression.slurm`).
 6. Se generan agrupamientos (clustering) y mapas de calor de los genes diferencialmente expresados (`5.Clustering.slurm`).
 7. Se filtran los resultados significativos (padj ≤ 0.05) y se extraen las secuencias (nucleótido y proteína) y anotaciones correspondientes a los DEGs de cada tratamiento.
+8. Se realiza un análisis de enriquecimiento funcional de términos GO (Gene Ontology) sobre los DEGs de cada tratamiento, utilizando GOATOOLS y la anotación por homología contra *Arabidopsis thaliana* generada en la Práctica 10.
 
 ---
 
@@ -320,10 +321,12 @@ sbatch 5.Clustering.slurm
 module load r/3.6.2/gcc/9.3.0-2qky
 module load trinity/2.6.6/gcc/8.3.1-vykc
 
-cd DEG
+cd DEgenes
 
 analyze_diff_expr.pl --matrix ../AbundanceMatrix.isoform.TMM.EXPR.matrix -P 0.05 -C 2 --output HeatMap --samples ../SamplesDescribed.txt
 ```
+
+> Nota: el script hace `cd DEgenes` antes de ejecutar `analyze_diff_expr.pl`, mientras que el paso anterior (`4.DifferentialExpression.slurm`) genera su salida en un directorio llamado `DEG`. Verifique que el nombre del directorio (`DEgenes` vs `DEG`) sea consistente en su entorno de trabajo, o ajuste la ruta según corresponda antes de ejecutar este script.
 
 ---
 
@@ -367,6 +370,110 @@ grep -Ff TreatmentY_DEG.IDs ../../../Practica10/BlastResult > DEGTreatmentYAnnot
 
 ---
 
+## Paso 7 — Análisis de enriquecimiento funcional (GO) con GOATOOLS
+
+Como complemento al Paso 6, y una vez que se cuenta con la lista de DEGs y su anotación por homología contra *Arabidopsis thaliana*, se puede realizar un análisis de enriquecimiento de términos de Gene Ontology (GO) para cada tratamiento, utilizando el paquete **GOATOOLS**. La idea es comparar, para cada lista de DEGs (la "muestra"), qué categorías GO aparecen sobrerrepresentadas respecto al conjunto total de genes anotados contra *A. thaliana* (la "población de referencia").
+
+### 7.1 — Activar el ambiente de conda de GOATOOLS
+
+Antes de ejecutar cualquiera de las herramientas de este paso, active el ambiente de conda donde está instalado GOATOOLS:
+
+```bash
+conda activate goatools
+```
+
+> Nota: en el archivo de ejercicio original el comando aparece como `conda activat goatools` (falta la "e" final); la sintaxis correcta es `conda activate goatools`.
+
+### 7.2 — Enlazar los resultados de BLASTp contra Arabidopsis thaliana
+
+Genere un enlace simbólico hacia el archivo de resultados de BLASTp entre las proteínas de los unigenes ensamblados (obtenidas con AlignWise en la Práctica 10) y las proteínas de *Arabidopsis thaliana*, generado previamente en la Práctica 10:
+
+```bash
+ln -s ../Practica10/ArabidopsisDB/blastp_ARATH_Trinity_Awise_prot.tsv
+```
+
+### 7.3 — Generar la lista de identificadores de los DEG por tratamiento
+
+A partir de los archivos fasta de proteínas de los DEGs obtenidos en el Paso 6 (`TreatmentX_DEG_PRT.fasta`, `TreatmentY_DEG_PRT.fasta`), extraiga únicamente el identificador de cada secuencia (sin el símbolo `>` ni la descripción adicional):
+
+```bash
+srun --mem 8G -n1 -p q2 grep ">" TreatmentX_DEG_PRT.fasta | sed 's/>//g' | cut -d " " -f 1 > TreatmentX_DEG_PRT_list.txt
+srun --mem 8G -n1 -p q2 grep ">" TreatmentY_DEG_PRT.fasta | sed 's/>//g' | cut -d " " -f 1 > TreatmentY_DEG_PRT_list.txt
+```
+
+### 7.4 — Buscar la anotación de los DEG contra A. thaliana
+
+Utilice la lista de identificadores generada en el paso anterior para filtrar, dentro del archivo de resultados de BLASTp (`blastp_ARATH_Trinity_Awise_prot.tsv`), únicamente aquellas líneas correspondientes a los DEGs de cada tratamiento:
+
+```bash
+srun --mem 8G -n1 -p q2 grep -f TreatmentX_DEG_PRT_list.txt blastp_ARATH_Trinity_Awise_prot.tsv > TreatmentX_DEG_PRT_annotation.txt
+srun --mem 8G -n1 -p q2 grep -f TreatmentY_DEG_PRT_list.txt blastp_ARATH_Trinity_Awise_prot.tsv > TreatmentY_DEG_PRT_annotation.txt
+```
+
+### 7.5 — Generar la lista de DEG con su identificador de A. thaliana ("sample")
+
+De la anotación anterior, extraiga la columna correspondiente al mejor hit de *A. thaliana* (columna 2 del formato tabular de BLAST), tome el identificador del gen (tercer campo separado por `|`) y elimine el sufijo `_ARATH` para quedarse únicamente con el identificador tipo AGI (p. ej. `AT1G01010`). Esta lista es la que GOATOOLS utilizará como conjunto de estudio ("sample") por tratamiento:
+
+```bash
+srun --mem 8G -n1 -p q2 cut -f 2 TreatmentX_DEG_PRT_annotation.txt | cut -d "|" -f 3 | sed 's/_ARATH//g' > TreatmentX_sample.txt
+srun --mem 8G -n1 -p q2 cut -f 2 TreatmentY_DEG_PRT_annotation.txt | cut -d "|" -f 3 | sed 's/_ARATH//g' > TreatmentY_sample.txt
+```
+
+### 7.6 — Generar la lista de la población de referencia ("population")
+
+De forma análoga, pero a partir de **todo** el archivo de resultados de BLASTp (no solo de los DEGs), genere la lista completa de genes de *A. thaliana* anotados por homología para todos los unigenes del ensamblado. Esta lista es la población de referencia ("population") contra la cual se evalúa el enriquecimiento:
+
+```bash
+srun --mem 8G -n1 -p q2 cut -f 2 blastp_ARATH_Trinity_Awise_prot.tsv | cut -d "|" -f 3 | sed 's/_ARATH//g' > population.txt
+```
+
+### 7.7 — Archivo de asociación GO (NO EJECUTAR)
+
+Para poder realizar el análisis de enriquecimiento, GOATOOLS requiere además un archivo de asociación que relacione cada identificador de gen de *A. thaliana* con sus términos GO correspondientes. Este archivo se construiría a partir de la clasificación ontológica de PANTHER para *A. thaliana* (`PTHR17.0_arabidopsis`, descargable desde [data.pantherdb.org](http://data.pantherdb.org/ftp/sequence_classifications/current_release/PANTHER_Sequence_Classification_files/PTHR17.0_arabidopsis)):
+
+```bash
+# NOTA: NO CORRER ESTE PASO EN LA PRÁCTICA
+# El archivo de asociación (association.txt) ya se encuentra pre-generado y disponible para el curso,
+# dado que su construcción a partir del archivo completo de PANTHER es un proceso largo.
+
+if [[ -f association.txt ]]
+then
+        rm -fr association.txt
+fi
+
+while read line
+do
+        ID=$(echo $line | cut -d " " -f 3)
+        GO=$(echo $line | sed 's/#/\n/g' | grep -o "^GO:......." | sed -z "s/\n/;/g")
+        echo -e "$ID\t${GO}" >> association.txt
+
+done < PTHR17.0_arabidopsis
+```
+
+> **Importante:** este bloque se incluye únicamente con fines ilustrativos, para explicar de dónde proviene el archivo `association.txt` que se usa en el siguiente paso. **No debe ejecutarse** durante la práctica; utilice el archivo `association.txt` que ya esté disponible en el directorio de trabajo.
+
+### 7.8 — Análisis de enriquecimiento funcional (GOEA)
+
+Con las listas de estudio (`TreatmentX_sample.txt`, `TreatmentY_sample.txt`), la población de referencia (`population.txt`) y el archivo de asociación (`association.txt`), ejecute el análisis de enriquecimiento de GO (GOEA) con `find_enrichment.py`, usando un umbral de significancia de p ≤ 0.05:
+
+```bash
+srun --mem 8G -n1 -p q2 find_enrichment.py --pval=0.05 TreatmentX_sample.txt population.txt association.txt --outfile=goea_results_treatmentX.tsv
+srun --mem 8G -n1 -p q2 find_enrichment.py --pval=0.05 TreatmentY_sample.txt population.txt association.txt --outfile=goea_results_treatmentY.tsv
+```
+
+### 7.9 — Graficar las categorías enriquecidas
+
+Finalmente, extraiga de los resultados únicamente las categorías GO marcadas como enriquecidas (columna 3 = `e`), limpie el formato de los identificadores y genere una gráfica de relaciones entre dichas categorías con `go_plot.py`:
+
+```bash
+GOe=$(awk '$3 == "e"' goea_results_treatmentX.tsv | cut -f 1 | sed 's/\.//g' | sed -z 's/\n/ /g')
+srun --mem 8G -n1 -p q2 go_plot.py --relationship $GOe
+```
+
+> Nota: el ejercicio original solo grafica los resultados de `TreatmentX`. Para generar la gráfica equivalente de `TreatmentY`, repita el mismo bloque sustituyendo `goea_results_treatmentX.tsv` por `goea_results_treatmentY.tsv`.
+
+---
+
 ## Resumen de archivos generados
 
 | Etapa | Archivos / directorios generados |
@@ -379,5 +486,7 @@ grep -Ff TreatmentY_DEG.IDs ../../../Practica10/BlastResult > DEGTreatmentYAnnot
 | Filtrado de DEGs significativos | `TreatmentX_DEG`, `TreatmentY_DEG`, `TreatmentX_DEG.IDs`, `TreatmentY_DEG.IDs` |
 | Secuencias de los DEGs | `TreatmentX_DEG.fasta`, `TreatmentY_DEG.fasta`, `TreatmentX_DEG_PRT.fasta`, `TreatmentY_DEG_PRT.fasta` |
 | Anotación de los DEGs | `DEGTreatmentXAnnotation.txt`, `DEGTreatmentYAnnotation.txt` |
+| Listas para GOATOOLS | `TreatmentX_DEG_PRT_list.txt`, `TreatmentY_DEG_PRT_list.txt`, `TreatmentX_DEG_PRT_annotation.txt`, `TreatmentY_DEG_PRT_annotation.txt`, `TreatmentX_sample.txt`, `TreatmentY_sample.txt`, `population.txt`, `association.txt` (pre-generado) |
+| Enriquecimiento funcional (GO) | `goea_results_treatmentX.tsv`, `goea_results_treatmentY.tsv` y gráfica de relaciones GO |
 
 ---
