@@ -87,7 +87,7 @@ title: Herramientas bioinformáticas para el análisis de genomas y transcriptom
     <p>Esta sección irá creciendo durante el curso. Aquí reuniremos notebooks, scripts, datos, ejercicios, cuestionarios y documentación.</p>
   </div>
   <div class="material-links">
-    <a href="materiales/cuestionario-linux-hpc.html">Cuestionario · Linux y HPC <span>→</span></a>
+    <a href="materiales/evaluacion-curso.html">Encuesta de evaluación <span>→</span></a>
     <a href="dia-01.html">Materiales · Día 1 <span>→</span></a>
     <a href="dia-02.html">Materiales · Día 2 <span>→</span></a>
     <a href="dia-03.html">Materiales · Día 3 <span>→</span></a>
