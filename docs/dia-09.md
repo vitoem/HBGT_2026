@@ -490,3 +490,5 @@ srun --mem 8G -n1 -p q2 go_plot.py --relationship $GOe
 | Enriquecimiento funcional (GO) | `goea_results_treatmentX.tsv`, `goea_results_treatmentY.tsv` y gráfica de relaciones GO |
 
 ---
+
+[**Evaluación del Día 09**](https://forms.cloud.microsoft/r/x44ftd9xXC)
