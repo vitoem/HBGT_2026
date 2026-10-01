@@ -1,3 +1,14 @@
+---
+layout: default
+title: "Calificaciones Finales del Curso"
+---
+
+<span class="eyebrow">Jueves · 1° de octure</span>
+
+---
+
+# 🖥️ Calificaciones Finales del Curso
+
 | GUEST | EVALUACIONES (40%) | ASISTENCIA, PUNTUALIDAD Y PARTICIPACIÓN (20%) | EJERCICIOS (40%) | TOTAL | FINAL |
 | --- | --- | --- | --- | --- | --- |
 | 01 | 38.56 | 20.00 | 40.00 | 98.56 | 100.00 |
@@ -9,5 +20,7 @@
 | 07 | 37.12 | 16.97 | 38.18 | 92.26 | 93.61 |
 | 08 | 37.84 | 19.24 | 40.00 | 97.08 | 98.50 |
 | 09 | 36.76 | 16.97 | 40.00 | 93.72 | 95.09 |
+
+---
 | 10 | 29.19 | 20.00 | 40.00 | 89.19 | 90.49 |
 | 11 | 37.48 | 18.48 | 40.00 | 95.96 | 97.36 |
