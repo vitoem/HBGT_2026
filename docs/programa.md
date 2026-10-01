@@ -21,7 +21,7 @@ title: Programa
 | **Equipo de instructores** | Dr. Enrique Ibarra Laclette · M. en C. Emanuel Villafán de la Torre · Dra. Diana Hernández Oaxaca · Dr. Michel Pale Rivas |
 | **Ayudante del curso** | Andrea Iridiana Barraza Ochoa |
 
-**Mecanismo de evaluación:**
+[**Mecanismo de evaluación:**](calificaciones.html)
 1. Asistencia y participación activa — 20%
 2. Ejercicios prácticos desarrollados en cada sesión — 40%
 3. Evaluaciones parciales — 40%
